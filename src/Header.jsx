@@ -1,8 +1,12 @@
+import { Link } from "react-router-dom";
+
 export function Header() {
   return (
     <header>
       <nav>
-        <a href="#">Header</a>
+        <Link to="/">Home</Link>
+        <Link to="/signup">signup</Link>
+        <Link to="/login">login</Link>
       </nav>
     </header>
   );
