@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
+import { Signup } from "./Signup";
 import { SnapshotsIndex } from "./SnapshotsIndex";
 
 export function Home() {
@@ -17,6 +18,7 @@ export function Home() {
 
   return (
     <div>
+      <Signup />
       <h1> Home! </h1>
       <SnapshotsIndex snapshots={snapshots} />
     </div>
