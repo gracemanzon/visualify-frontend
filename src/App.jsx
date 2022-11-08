@@ -5,7 +5,7 @@ import { Header } from "./Header";
 import { Home } from "./Home";
 import { Login } from "./Login";
 import { Signup } from "./Signup";
-// import { SnapshotShow } from "./SnapshotShow";
+import { SnapshotShow } from "./SnapshotShow";
 
 function App() {
   return (
@@ -15,6 +15,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/snapshots/:id" element={<SnapshotShow />} />
       </Routes>
       <Footer />
     </BrowserRouter>

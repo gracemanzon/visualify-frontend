@@ -6,7 +6,7 @@ export function SnapshotsIndex(props) {
       <h1>All Snapshots</h1>
       {props.snapshots.map((snapshot) => (
         <div key={snapshot.id}>
-          <Link to="/snapshots">
+          <Link to="/snapshots/">
             <h2>{snapshot.title}</h2>
           </Link>
           {/* <img src={snapshot.image} /> */}
