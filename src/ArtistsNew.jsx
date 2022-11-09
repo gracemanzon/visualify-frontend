@@ -28,6 +28,10 @@ export function ArtistsNew() {
           <input name="name" type="text" />
         </div>
         <div>
+          <p>Image:</p>
+          <input name="image" type="text" />
+        </div>
+        <div>
           <p>Snapshot ID:</p>
           <input name="snapshot_id" type="text" defaultValue={localStorage.getItem("snapshot_id")} />
         </div>

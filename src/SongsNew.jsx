@@ -36,6 +36,10 @@ export function SongsNew() {
           <input name="album" type="text" />
         </div>
         <div>
+          <p>Album Art:</p>
+          <input name="album_art" type="text" />
+        </div>
+        <div>
           <p>Snapshot ID:</p>
           <input name="snapshot_id" type="text" defaultValue={localStorage.getItem("snapshot_id")} />
         </div>
