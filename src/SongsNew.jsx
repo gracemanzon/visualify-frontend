@@ -1,4 +1,5 @@
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 export function SongsNew() {
   const handleCreateSong = (params) => {
@@ -42,6 +43,9 @@ export function SongsNew() {
           <button type="submit">Add Song</button>
         </div>
       </form>
+      <div>
+        <Link to={`/snapshots/${localStorage.getItem("snapshot_id")}`}>Back to Snapshot</Link>
+      </div>
     </div>
   );
 }

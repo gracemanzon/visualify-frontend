@@ -1,4 +1,5 @@
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 export function GenresNew() {
   const handleCreateGenre = (params) => {
@@ -34,6 +35,9 @@ export function GenresNew() {
           <button type="submit">Add Genre</button>
         </div>
       </form>
+      <div>
+        <Link to={`/snapshots/${localStorage.getItem("snapshot_id")}`}>Back to Snapshot</Link>
+      </div>
     </div>
   );
 }
