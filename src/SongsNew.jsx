@@ -6,7 +6,7 @@ export function SongsNew() {
     axios.post("http://localhost:3000/songs.json", params).then((response) => {
       const newSong = response.data;
       console.log("Song added to snapshot", newSong);
-      localStorage.setItem("snapshot_id", response.data.snapshot_id);
+      // localStorage.setItem("snapshot_id", response.data.snapshot_id);
       window.location.href = "/snapshots/" + response.data.snapshot_id;
     });
   };
