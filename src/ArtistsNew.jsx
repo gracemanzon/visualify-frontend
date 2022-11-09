@@ -1,13 +1,14 @@
 import axios from "axios";
-import { Link } from "react-router-dom";
+import { useParams } from "react-router-dom";
 
 export function ArtistsNew() {
+  const params = useParams();
+  console.log("snapshot: " + params.id);
+
   const handleCreateArtist = (params) => {
     axios.post("http://localhost:3000/artists.json", params).then((response) => {
       const newArtist = response.data;
       console.log("Artist added to snapshot", newArtist);
-      // localStorage.setItem("snapshot_id", response.data.snapshot_id);
-      window.location.href = "/snapshots/" + response.data.snapshot_id;
     });
   };
 
@@ -32,12 +33,7 @@ export function ArtistsNew() {
           <input name="image" type="text" />
         </div>
         <div>
-          <p>Snapshot ID:</p>
-          <input
-            name="snapshot_id"
-            type="text"
-            // defaultValue={localStorage.getItem("snapshot_id")}
-          />
+          <input name="snapshot_id" type="hidden" defaultValue={params.id} />
         </div>
         <div>
           <button type="submit">Add Artist</button>

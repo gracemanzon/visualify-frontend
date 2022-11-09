@@ -9,6 +9,7 @@ export function SnapshotShow(props) {
   console.log(params);
   const [snapshot, setSnapshot] = useState({});
   const [isArtistsNewVisible, setIsArtistsNewVisible] = useState(false);
+  const { id } = useParams();
 
   const handleSnapshotShow = (snapshot) => {
     axios.get("http://localhost:3000/snapshots/" + params.id + ".json").then((response) => {
