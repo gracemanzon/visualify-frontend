@@ -43,9 +43,6 @@ export function ArtistsNew() {
           <button type="submit">Add Artist</button>
         </div>
       </form>
-      <div>
-        <Link to={`/snapshots/${localStorage.getItem("snapshot_id")}`}>Back to Snapshot</Link>
-      </div>
     </div>
   );
 }

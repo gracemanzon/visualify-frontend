@@ -1,7 +1,6 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
 import { Login } from "./Login";
-import { SnapshotsIndex } from "./SnapshotsIndex";
 
 export function Home() {
   const [user, setUser] = useState({});

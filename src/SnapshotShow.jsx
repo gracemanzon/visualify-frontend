@@ -1,11 +1,14 @@
 import { Link, useParams } from "react-router-dom";
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { Modal } from "./Modal";
+import { ArtistsNew } from "./ArtistsNew";
 
 export function SnapshotShow(props) {
   const params = useParams();
   console.log(params);
   const [snapshot, setSnapshot] = useState({});
+  const [isArtistsNewVisible, setIsArtistsNewVisible] = useState(false);
 
   const handleSnapshotShow = (snapshot) => {
     axios.get("http://localhost:3000/snapshots/" + params.id + ".json").then((response) => {
@@ -25,6 +28,14 @@ export function SnapshotShow(props) {
     handleDestroySnapshot();
   };
 
+  const handleShowArtistsNew = () => {
+    setIsArtistsNewVisible(true);
+  };
+
+  const handleHideArtistsNew = () => {
+    setIsArtistsNewVisible(false);
+  };
+
   useEffect(handleSnapshotShow, []);
 
   return (
@@ -34,15 +45,19 @@ export function SnapshotShow(props) {
       <p>
         {snapshot.start_date} - {snapshot.end_date}
       </p>
+      <Modal show={isArtistsNewVisible} onClose={handleHideArtistsNew}>
+        <ArtistsNew />
+      </Modal>
 
       <div>
-        <Link to="/artists">Add Artists</Link>
+        {/* <Link to="/artists">Add Artists</Link> */}
         <Link to="/songs">Add Songs</Link>
         <Link to="/genres">Add Genres</Link>
         <Link to="/snapshots">Back to Dashboard</Link>
         <button onClick={handleClick}>
           <p>Delete Snapshot</p>
         </button>
+        <button onClick={handleShowArtistsNew}>Add Artists</button>
       </div>
 
       <div id="artists-index">
