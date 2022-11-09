@@ -14,6 +14,17 @@ export function SnapshotShow(props) {
     });
   };
 
+  const handleDestroySnapshot = (snapshot) => {
+    axios.delete("http://localhost:3000/snapshots/" + params.id + ".json").then((response) => {
+      console.log("Snapshot has been Deleted");
+      window.location.href = "/snapshots";
+    });
+  };
+
+  const handleClick = () => {
+    handleDestroySnapshot();
+  };
+
   useEffect(handleSnapshotShow, []);
 
   return (
@@ -29,6 +40,9 @@ export function SnapshotShow(props) {
         <Link to="/songs">Add Songs</Link>
         <Link to="/genres">Add Genres</Link>
         <Link to="/snapshots">Back to Dashboard</Link>
+        <button onClick={handleClick}>
+          <p>Delete Snapshot</p>
+        </button>
       </div>
 
       <div id="artists-index">
