@@ -72,3 +72,7 @@ button:focus-visible {
 html {
   scroll-behavior: smooth;
 }
+
+img {
+  width: 300px;
+}

@@ -5,7 +5,7 @@ export function SnapshotsIndex(props) {
     <div>
       <h1>All Snapshots</h1>
       {props.snapshots.map((snapshot) => (
-        <div key={snapshot.id}>
+        <div key={snapshot.id} id="snapshot-index">
           <Link to={`/snapshots/${snapshot.id}`}>
             <h2>{snapshot.title}</h2>
             <img src={snapshot.image} />
