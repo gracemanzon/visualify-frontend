@@ -17,7 +17,7 @@ export function SnapshotShow(props) {
   useEffect(handleSnapshotShow, []);
 
   return (
-    <div>
+    <div id="snapshot-show">
       <h1>Snapshot Show Action</h1>
       <h2>{snapshot.title}</h2>
       <p>
@@ -26,7 +26,7 @@ export function SnapshotShow(props) {
       <p>{snapshot.user_name}</p>
       <img src={snapshot.image} />
 
-      <div>
+      <div id="artists-index">
         {snapshot.artists?.map((artist) => (
           <div>
             <img src={artist.image} />
@@ -35,7 +35,7 @@ export function SnapshotShow(props) {
         ))}
       </div>
 
-      <div>
+      <div id="songs-index">
         {snapshot.songs?.map((song) => (
           <div>
             <p>{song.title}</p>
@@ -45,7 +45,8 @@ export function SnapshotShow(props) {
           </div>
         ))}
       </div>
-      <div>
+
+      <div id="genres-index">
         {snapshot.genres?.map((genre) => (
           <div>
             <p>{genre.title}</p>

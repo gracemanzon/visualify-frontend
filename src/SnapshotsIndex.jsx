@@ -8,6 +8,7 @@ export function SnapshotsIndex(props) {
         <div key={snapshot.id}>
           <Link to={`/snapshots/${snapshot.id}`}>
             <h2>{snapshot.title}</h2>
+            <img src={snapshot.image} />
           </Link>
           {/* <img src={snapshot.image} /> */}
         </div>
