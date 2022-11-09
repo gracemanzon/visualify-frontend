@@ -5,7 +5,8 @@ export function GenresNew() {
     axios.post("http://localhost:3000/genres.json", params).then((response) => {
       const newGenre = response.data;
       console.log("Genre added to snapshot", newGenre);
-      window.location.href = "/";
+      localStorage.setItem("snapshot_id", response.data.snapshot_id);
+      window.location.href = "/snapshots/" + response.data.snapshot_id;
     });
   };
 
@@ -27,7 +28,7 @@ export function GenresNew() {
         </div>
         <div>
           <p>Snapshot ID:</p>
-          <input name="snapshot_id" type="text" />
+          <input name="snapshot_id" type="text" defaultValue={localStorage.getItem("snapshot_id")} />
         </div>
         <div>
           <button type="submit">Add Genre</button>

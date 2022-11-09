@@ -5,7 +5,8 @@ export function SongsNew() {
     axios.post("http://localhost:3000/songs.json", params).then((response) => {
       const newSong = response.data;
       console.log("Song added to snapshot", newSong);
-      window.location.href = "/";
+      localStorage.setItem("snapshot_id", response.data.snapshot_id);
+      window.location.href = "/snapshots/" + response.data.snapshot_id;
     });
   };
 
@@ -35,7 +36,7 @@ export function SongsNew() {
         </div>
         <div>
           <p>Snapshot ID:</p>
-          <input name="snapshot_id" type="text" />
+          <input name="snapshot_id" type="text" defaultValue={localStorage.getItem("snapshot_id")} />
         </div>
         <div>
           <button type="submit">Add Song</button>
