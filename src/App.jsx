@@ -9,6 +9,7 @@ import { Login } from "./Login";
 import { Signup } from "./Signup";
 import { SnapshotShow } from "./SnapshotShow";
 import { SongsNew } from "./SongsNew";
+import { UserShow } from "./UserShow";
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
         <Route path="/songs" element={<SongsNew />} />
         <Route path="/genres" element={<GenresNew />} />
         <Route path="/snapshots/:id" element={<SnapshotShow />} />
+        <Route path="/users/:id" element={<UserShow />} />
       </Routes>
       <Footer />
     </BrowserRouter>

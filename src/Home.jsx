@@ -1,6 +1,8 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
-import { SnapshotsIndex } from "./SnapshotsIndex";
+import { Login } from "./Login";
+// import { SnapshotsIndex } from "./SnapshotsIndex";
+// import { UserShow } from "./UserShow";
 
 export function Home() {
   const [snapshots, setSnapshots] = useState([]);
@@ -18,7 +20,8 @@ export function Home() {
   return (
     <div>
       <h1> Home! </h1>
-      <SnapshotsIndex snapshots={snapshots} />
+      {/* <SnapshotsIndex snapshots={snapshots} /> */}
+      <Login />
     </div>
   );
 }

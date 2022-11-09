@@ -23,7 +23,6 @@ export function SnapshotShow(props) {
       <p>
         {snapshot.start_date} - {snapshot.end_date}
       </p>
-      <p>{snapshot.user_name}</p>
 
       <div>
         <Link to="/artists">Add Artists</Link>
