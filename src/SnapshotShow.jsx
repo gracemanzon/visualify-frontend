@@ -39,6 +39,7 @@ export function SnapshotShow(props) {
 
   const handleHideArtistsNew = () => {
     setIsArtistsNewVisible(false);
+    window.location.href = "/snapshots/" + params.id;
   };
 
   const handleShowSongsNew = () => {
@@ -47,6 +48,7 @@ export function SnapshotShow(props) {
 
   const handleHideSongsNew = () => {
     setIsSongsNewVisible(false);
+    window.location.href = "/snapshots/" + params.id;
   };
 
   const handleShowGenresNew = () => {
@@ -55,6 +57,7 @@ export function SnapshotShow(props) {
 
   const handleHideGenresNew = () => {
     setIsGenresNewVisible(false);
+    window.location.href = "/snapshots/" + params.id;
   };
 
   useEffect(handleSnapshotShow, []);
@@ -79,16 +82,11 @@ export function SnapshotShow(props) {
       </Modal>
 
       <div>
-        {/* <Link to="/artists">Add Artists</Link> */}
-        <Link to="/songs">Add Songs</Link>
-        <Link to="/genres">Add Genres</Link>
         <Link to="/snapshots">Back to Dashboard</Link>
-        <button onClick={handleClick}>
-          <p>Delete Snapshot</p>
-        </button>
         <button onClick={handleShowArtistsNew}>Add Artists</button>
         <button onClick={handleShowSongsNew}>Add Songs</button>
         <button onClick={handleShowGenresNew}>Add Genres</button>
+        <button onClick={handleClick}>Delete Snapshot</button>
       </div>
 
       <div id="artists-index">
