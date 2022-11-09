@@ -1,6 +1,5 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
-import { Logout } from "./Logout";
 import { SnapshotsIndex } from "./SnapshotsIndex";
 
 export function Home() {
@@ -18,8 +17,6 @@ export function Home() {
 
   return (
     <div>
-      <Logout />
-
       <h1> Home! </h1>
       <SnapshotsIndex snapshots={snapshots} />
     </div>
