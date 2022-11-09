@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import axios from "axios";
 import { useEffect, useState } from "react";
 
@@ -24,7 +24,10 @@ export function SnapshotShow(props) {
         {snapshot.start_date} - {snapshot.end_date}
       </p>
       <p>{snapshot.user_name}</p>
-      <img src={snapshot.image} />
+
+      <div>
+        <Link to="/artists">Add Artists</Link>
+      </div>
 
       <div id="artists-index">
         <h3>Top Artists</h3>
