@@ -1,13 +1,14 @@
 import axios from "axios";
-import { Link } from "react-router-dom";
+import { useParams } from "react-router-dom";
 
 export function SongsNew() {
+  const params = useParams();
+  console.log("snapshot: " + params.id);
+
   const handleCreateSong = (params) => {
     axios.post("http://localhost:3000/songs.json", params).then((response) => {
       const newSong = response.data;
       console.log("Song added to snapshot", newSong);
-      // localStorage.setItem("snapshot_id", response.data.snapshot_id);
-      window.location.href = "/snapshots/" + response.data.snapshot_id;
     });
   };
 
@@ -40,16 +41,12 @@ export function SongsNew() {
           <input name="album_art" type="text" />
         </div>
         <div>
-          <p>Snapshot ID:</p>
-          <input name="snapshot_id" type="text" defaultValue={localStorage.getItem("snapshot_id")} />
+          <input name="snapshot_id" type="hidden" defaultValue={localStorage.getItem("snapshot_id")} />
         </div>
         <div>
           <button type="submit">Add Song</button>
         </div>
       </form>
-      <div>
-        <Link to={`/snapshots/${localStorage.getItem("snapshot_id")}`}>Back to Snapshot</Link>
-      </div>
     </div>
   );
 }

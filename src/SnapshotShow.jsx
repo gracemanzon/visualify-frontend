@@ -3,13 +3,15 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { Modal } from "./Modal";
 import { ArtistsNew } from "./ArtistsNew";
+import { SongsNew } from "./SongsNew";
 
 export function SnapshotShow(props) {
   const params = useParams();
   console.log(params);
   const [snapshot, setSnapshot] = useState({});
   const [isArtistsNewVisible, setIsArtistsNewVisible] = useState(false);
-  const { id } = useParams();
+  const [isSongsNewVisible, setIsSongsNewVisible] = useState(false);
+  // const { id } = useParams();
 
   const handleSnapshotShow = (snapshot) => {
     axios.get("http://localhost:3000/snapshots/" + params.id + ".json").then((response) => {
@@ -37,6 +39,14 @@ export function SnapshotShow(props) {
     setIsArtistsNewVisible(false);
   };
 
+  const handleShowSongsNew = () => {
+    setIsSongsNewVisible(true);
+  };
+
+  const handleHideSongsNew = () => {
+    setIsSongsNewVisible(false);
+  };
+
   useEffect(handleSnapshotShow, []);
 
   return (
@@ -50,6 +60,10 @@ export function SnapshotShow(props) {
         <ArtistsNew />
       </Modal>
 
+      <Modal show={isSongsNewVisible} onClose={handleHideSongsNew}>
+        <SongsNew />
+      </Modal>
+
       <div>
         {/* <Link to="/artists">Add Artists</Link> */}
         <Link to="/songs">Add Songs</Link>
@@ -59,6 +73,7 @@ export function SnapshotShow(props) {
           <p>Delete Snapshot</p>
         </button>
         <button onClick={handleShowArtistsNew}>Add Artists</button>
+        <button onClick={handleShowSongsNew}>Add Songs</button>
       </div>
 
       <div id="artists-index">
