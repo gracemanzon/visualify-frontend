@@ -7,6 +7,7 @@ import { Home } from "./Home";
 import { Login } from "./Login";
 import { Signup } from "./Signup";
 import { SnapshotShow } from "./SnapshotShow";
+import { SongsNew } from "./SongsNew";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         <Route path="/signup" element={<Signup />} />
         <Route path="/login" element={<Login />} />
         <Route path="/artists" element={<ArtistsNew />} />
+        <Route path="/songs" element={<SongsNew />} />
         <Route path="/snapshots/:id" element={<SnapshotShow />} />
       </Routes>
       <Footer />

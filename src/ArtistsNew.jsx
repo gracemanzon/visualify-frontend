@@ -1,6 +1,6 @@
 import axios from "axios";
 
-export function ArtistsNew(props) {
+export function ArtistsNew() {
   const handleCreateArtist = (params) => {
     axios.post("http://localhost:3000/artists.json", params).then((response) => {
       const newArtist = response.data;
