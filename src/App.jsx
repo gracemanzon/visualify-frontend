@@ -2,6 +2,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./App.css";
 import { ArtistsNew } from "./ArtistsNew";
 import { Footer } from "./Footer";
+import { GenresNew } from "./GenresNew";
 import { Header } from "./Header";
 import { Home } from "./Home";
 import { Login } from "./Login";
@@ -19,6 +20,7 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/artists" element={<ArtistsNew />} />
         <Route path="/songs" element={<SongsNew />} />
+        <Route path="/genres" element={<GenresNew />} />
         <Route path="/snapshots/:id" element={<SnapshotShow />} />
       </Routes>
       <Footer />

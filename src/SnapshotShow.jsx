@@ -28,6 +28,7 @@ export function SnapshotShow(props) {
       <div>
         <Link to="/artists">Add Artists</Link>
         <Link to="/songs">Add Songs</Link>
+        <Link to="/genres">Add Genres</Link>
       </div>
 
       <div id="artists-index">
