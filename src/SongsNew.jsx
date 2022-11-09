@@ -41,7 +41,7 @@ export function SongsNew() {
           <input name="album_art" type="text" />
         </div>
         <div>
-          <input name="snapshot_id" type="hidden" defaultValue={localStorage.getItem("snapshot_id")} />
+          <input name="snapshot_id" type="hidden" defaultValue={params.id} />
         </div>
         <div>
           <button type="submit">Add Song</button>
