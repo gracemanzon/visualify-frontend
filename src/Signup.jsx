@@ -13,7 +13,7 @@ export function Signup() {
       .then((response) => {
         console.log(response.data);
         event.target.reset();
-        window.location.href = "/snapshots";
+        window.location.href = "/";
       })
       .catch((error) => {
         console.log(error.response.data.errors);
@@ -33,6 +33,10 @@ export function Signup() {
         <div>
           <p>Name:</p>
           <input name="name" type="text" />
+        </div>
+        <div>
+          <p>Avatar:</p>
+          <input name="avatar" type="text" />
         </div>
         <div>
           <p>Email:</p>
