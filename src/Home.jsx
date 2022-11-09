@@ -1,26 +1,25 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
 import { Login } from "./Login";
-// import { SnapshotsIndex } from "./SnapshotsIndex";
-// import { UserShow } from "./UserShow";
+import { SnapshotsIndex } from "./SnapshotsIndex";
 
 export function Home() {
-  const [snapshots, setSnapshots] = useState([]);
+  const [user, setUser] = useState({});
+  const userId = localStorage.getItem("user_id");
 
-  const handleSnapshotsIndex = () => {
-    console.log("handleSnapshotsIndex");
-    axios.get("http://localhost:3000/snapshots.json").then((response) => {
+  const handleUserShow = () => {
+    console.log("handleUserShow");
+    axios.get("http://localhost:3000/users/" + userId + ".json").then((response) => {
       console.log(response.data);
-      setSnapshots(response.data);
+      setUser(response.data);
     });
   };
 
-  useEffect(handleSnapshotsIndex, []);
+  useEffect(handleUserShow, {});
 
   return (
     <div>
-      <h1> Home! </h1>
-      {/* <SnapshotsIndex snapshots={snapshots} /> */}
+      <h1> Visualify </h1>
       <Login />
     </div>
   );

@@ -8,6 +8,7 @@ import { Home } from "./Home";
 import { Login } from "./Login";
 import { Signup } from "./Signup";
 import { SnapshotShow } from "./SnapshotShow";
+import { SnapshotsIndex } from "./SnapshotsIndex";
 import { SongsNew } from "./SongsNew";
 import { UserShow } from "./UserShow";
 
@@ -22,6 +23,7 @@ function App() {
         <Route path="/artists" element={<ArtistsNew />} />
         <Route path="/songs" element={<SongsNew />} />
         <Route path="/genres" element={<GenresNew />} />
+        <Route path="/snapshots" element={<SnapshotsIndex />} />
         <Route path="/snapshots/:id" element={<SnapshotShow />} />
         <Route path="/users/:id" element={<UserShow />} />
       </Routes>
