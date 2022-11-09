@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { Modal } from "./Modal";
 import { ArtistsNew } from "./ArtistsNew";
 import { SongsNew } from "./SongsNew";
+import { GenresNew } from "./GenresNew";
 
 export function SnapshotShow(props) {
   const params = useParams();
@@ -11,6 +12,7 @@ export function SnapshotShow(props) {
   const [snapshot, setSnapshot] = useState({});
   const [isArtistsNewVisible, setIsArtistsNewVisible] = useState(false);
   const [isSongsNewVisible, setIsSongsNewVisible] = useState(false);
+  const [isGenresNewVisible, setIsGenresNewVisible] = useState(false);
   // const { id } = useParams();
 
   const handleSnapshotShow = (snapshot) => {
@@ -47,6 +49,14 @@ export function SnapshotShow(props) {
     setIsSongsNewVisible(false);
   };
 
+  const handleShowGenresNew = () => {
+    setIsGenresNewVisible(true);
+  };
+
+  const handleHideGenresNew = () => {
+    setIsGenresNewVisible(false);
+  };
+
   useEffect(handleSnapshotShow, []);
 
   return (
@@ -64,6 +74,10 @@ export function SnapshotShow(props) {
         <SongsNew />
       </Modal>
 
+      <Modal show={isGenresNewVisible} onClose={handleHideGenresNew}>
+        <GenresNew />
+      </Modal>
+
       <div>
         {/* <Link to="/artists">Add Artists</Link> */}
         <Link to="/songs">Add Songs</Link>
@@ -74,6 +88,7 @@ export function SnapshotShow(props) {
         </button>
         <button onClick={handleShowArtistsNew}>Add Artists</button>
         <button onClick={handleShowSongsNew}>Add Songs</button>
+        <button onClick={handleShowGenresNew}>Add Genres</button>
       </div>
 
       <div id="artists-index">
