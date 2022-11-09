@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { Logout } from "./Logout";
 import { useState, useEffect } from "react";
 import axios from "axios";
+import { SnapshotsNew } from "./SnapshotsNew";
 
 export function SnapshotsIndex() {
   const [snapshots, setSnapshots] = useState([]);
@@ -48,6 +49,7 @@ export function SnapshotsIndex() {
           </div>
         ))}
       </div>
+      <SnapshotsNew />
     </div>
   );
 }
