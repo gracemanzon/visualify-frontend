@@ -27,6 +27,7 @@ export function SnapshotShow(props) {
       <img src={snapshot.image} />
 
       <div id="artists-index">
+        <h3>Top Artists</h3>
         {snapshot.artists?.map((artist) => (
           <div>
             <img src={artist.image} />
@@ -36,6 +37,7 @@ export function SnapshotShow(props) {
       </div>
 
       <div id="songs-index">
+        <h3>Top Songs</h3>
         {snapshot.songs?.map((song) => (
           <div>
             <p>{song.title}</p>
@@ -47,6 +49,7 @@ export function SnapshotShow(props) {
       </div>
 
       <div id="genres-index">
+        <h3>Top Genres</h3>
         {snapshot.genres?.map((genre) => (
           <div>
             <p>{genre.title}</p>
