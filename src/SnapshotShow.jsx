@@ -2,7 +2,7 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 import { useEffect, useState } from "react";
 
-export function SnapshotShow() {
+export function SnapshotShow(props) {
   const params = useParams();
   console.log(params);
   const [snapshot, setSnapshot] = useState({});
@@ -24,19 +24,32 @@ export function SnapshotShow() {
         {snapshot.start_date} - {snapshot.end_date}
       </p>
       <p>{snapshot.user_name}</p>
+      <img src={snapshot.image} />
+
       <div>
         {snapshot.artists?.map((artist) => (
-          <p>{artist.name}</p>
+          <div>
+            <img src={artist.image} />
+            <p>{artist.name}</p>
+          </div>
         ))}
       </div>
+
       <div>
         {snapshot.songs?.map((song) => (
-          <p>{song.title}</p>
+          <div>
+            <p>{song.title}</p>
+            <p>{song.artist}</p>
+            <p>{song.album}</p>
+            <img src={song.album_art} />
+          </div>
         ))}
       </div>
       <div>
         {snapshot.genres?.map((genre) => (
-          <p>{genre.title}</p>
+          <div>
+            <p>{genre.title}</p>
+          </div>
         ))}
       </div>
     </div>
