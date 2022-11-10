@@ -22,29 +22,27 @@ export function SongsNew() {
 
   return (
     <div>
-      <h1>Add a Song</h1>
+      <h3>Add a Song</h3>
       <form onSubmit={handleSubmit}>
         <div>
-          <p>Title:</p>
-          <input name="title" type="text" />
+          <input name="title" type="text" placeholder="song title" />
         </div>
         <div>
-          <p>Artist:</p>
-          <input name="artist" type="text" />
+          <input name="artist" type="text" placeholder="artist name" />
         </div>
         <div>
-          <p>Album:</p>
-          <input name="album" type="text" />
+          <input name="album" type="text" placeholder="album" />
         </div>
         <div>
-          <p>Album Art:</p>
-          <input name="album_art" type="text" />
+          <input name="album_art" type="text" placeholder="album art url" />
         </div>
         <div>
           <input name="snapshot_id" type="hidden" defaultValue={params.id} />
         </div>
         <div>
-          <button type="submit">Add Song</button>
+          <button type="submit" className="custom-btn-5">
+            Add Song
+          </button>
         </div>
       </form>
     </div>

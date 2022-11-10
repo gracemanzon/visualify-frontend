@@ -22,17 +22,18 @@ export function GenresNew() {
 
   return (
     <div>
-      <h1>Add a Genre</h1>
+      <h3>Add a Genre</h3>
       <form onSubmit={handleSubmit}>
         <div>
-          <p>Title:</p>
-          <input name="title" type="text" />
+          <input name="title" type="text" placeholder="title" />
         </div>
         <div>
           <input name="snapshot_id" type="hidden" defaultValue={params.id} />
         </div>
         <div>
-          <button type="submit">Add Genre</button>
+          <button type="submit" className="custom-btn-5">
+            Add Genre
+          </button>
         </div>
       </form>
     </div>

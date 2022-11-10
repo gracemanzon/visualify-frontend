@@ -22,21 +22,21 @@ export function ArtistsNew() {
 
   return (
     <div>
-      <h1>Add an Artist</h1>
+      <h3>Add an Artist</h3>
       <form onSubmit={handleSubmit}>
         <div>
-          <p>Name:</p>
-          <input name="name" type="text" />
+          <input name="name" type="text" placeholder="artist name" />
         </div>
         <div>
-          <p>Image:</p>
-          <input name="image" type="text" />
+          <input name="image" type="text" placeholder="artist image url" />
         </div>
         <div>
           <input name="snapshot_id" type="hidden" defaultValue={params.id} />
         </div>
         <div>
-          <button type="submit">Add Artist</button>
+          <button type="submit" className="custom-btn-5">
+            Add Artist
+          </button>
         </div>
       </form>
     </div>
