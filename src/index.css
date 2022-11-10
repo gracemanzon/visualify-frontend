@@ -215,6 +215,10 @@ nav h2 {
   object-fit: cover;
 }
 
+.snapshot-show {
+  width: 100vw;
+}
+
 .snapshot-show h1 {
   color: #ffffff;
 }
