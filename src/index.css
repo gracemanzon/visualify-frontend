@@ -120,8 +120,8 @@ form input {
   cursor: pointer;
   background-color: transparent;
   font-weight: bold;
-  margin-bottom: 0.5em;
   color: #ffffff;
+  margin-right: 1em;
 }
 
 .custom-btn-4 {
@@ -143,10 +143,10 @@ form input {
 }
 
 nav {
+  width: 100vw;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 1.2em;
 }
 
 nav img {
@@ -159,6 +159,7 @@ nav img {
   flex-direction: row;
   align-items: center;
   padding: 0;
+  margin-left: 1em;
 }
 
 nav h2 {
@@ -168,7 +169,7 @@ nav h2 {
 }
 
 .dashboard {
-  /* border: red 1px solid; */
+  border: red 1px solid;
   width: 100vw;
   /* height: 100vh; */
 }

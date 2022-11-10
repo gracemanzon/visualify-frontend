@@ -42,33 +42,34 @@ export function SnapshotsIndex() {
   useEffect(handleUserShow, {});
 
   return (
-    <div id="snapshots-index" className="dashboard">
-      <Modal show={isSnapshotsNewVisible} onClose={handleHideSnapshotsNew}>
-        <SnapshotsNew />
-      </Modal>
-
+    <div>
       <Header />
+      <div id="snapshots-index" className="dashboard">
+        <Modal show={isSnapshotsNewVisible} onClose={handleHideSnapshotsNew}>
+          <SnapshotsNew />
+        </Modal>
 
-      <div id="dashboard-user" className="dashboard-user-info">
-        <img src={user?.avatar} />
-        <div className="dashboard-user-log">
-          <h2>{user?.name}</h2>
-        </div>
-        <button onClick={handleShowSnapshotsNew} className="custom-btn-4">
-          Create Snapshot
-        </button>
-      </div>
-      <div id="dashboard-snapshots" className="dashboard-snapshots">
-        {snapshots?.map((snapshot) => (
-          <div key={snapshot.id}>
-            <Link to={`/snapshots/${snapshot.id}`} style={{ textDecoration: "none" }}>
-              <h2 className="custom-link">{snapshot.title}</h2>
-              <img src={snapshot.image} />
-            </Link>
+        <div id="dashboard-user" className="dashboard-user-info">
+          <img src={user?.avatar} />
+          <div className="dashboard-user-log">
+            <h2>{user?.name}</h2>
           </div>
-        ))}
+          <button onClick={handleShowSnapshotsNew} className="custom-btn-4">
+            Create Snapshot
+          </button>
+        </div>
+        <div id="dashboard-snapshots" className="dashboard-snapshots">
+          {snapshots?.map((snapshot) => (
+            <div key={snapshot.id}>
+              <Link to={`/snapshots/${snapshot.id}`} style={{ textDecoration: "none" }}>
+                <h2 className="custom-link">{snapshot.title}</h2>
+                <img src={snapshot.image} />
+              </Link>
+            </div>
+          ))}
+        </div>
+        {/* <Footer /> */}
       </div>
-      {/* <Footer /> */}
     </div>
   );
 }
