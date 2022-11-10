@@ -1,15 +1,16 @@
-import { Link } from "react-router-dom";
 import { Logout } from "./Logout";
 
 export function Header() {
   return (
     <header>
       <nav>
-        {/* <Link to="/">Home</Link> */}
-        {/* <Link to="/signup">signup</Link>
-        <Link to="/login">login</Link> */}
-        {/* <Link to="/snapshots">Dashboard</Link> */}
-        {/* <Logout /> */}
+        <div className="logo">
+          <img src="/src/assets/Spotify_Logo_RGB_Green.png" alt="spotify logo" />
+          <h2>Visualify Dashboard</h2>
+        </div>
+        <button className="custom-btn-3">
+          <Logout />
+        </button>
       </nav>
     </header>
   );

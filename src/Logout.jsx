@@ -11,7 +11,7 @@ export function Logout() {
   };
 
   return (
-    <a href="#" onClick={handleClick}>
+    <a href="#" onClick={handleClick} className="custom-link">
       Logout
     </a>
   );

@@ -17,8 +17,12 @@ export function Home() {
   useEffect(handleUserShow, {});
 
   return (
-    <div>
-      <h1> Visualify </h1>
+    <div className="home">
+      <div className="brand">
+        <img src="/src/assets/Spotify_Icon_RGB_Green.png" alt="spotify logo" />
+        <h2> + </h2>
+        <h1>Data Visualizer</h1>
+      </div>
       <Login />
     </div>
   );

@@ -1,10 +1,9 @@
 import { Link, useParams } from "react-router-dom";
-import { Logout } from "./Logout";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { SnapshotsNew } from "./SnapshotsNew";
 import { Modal } from "./Modal";
-import { Footer } from "./Footer";
+import { Header } from "./Header";
 
 export function SnapshotsIndex() {
   const params = useParams();
@@ -43,32 +42,33 @@ export function SnapshotsIndex() {
   useEffect(handleUserShow, {});
 
   return (
-    <div>
+    <div id="snapshots-index" className="dashboard">
       <Modal show={isSnapshotsNewVisible} onClose={handleHideSnapshotsNew}>
         <SnapshotsNew />
       </Modal>
 
-      <h1>Visualify</h1>
-      <div id="dashboard-user">
-        <h2>{user?.name}</h2>
+      <Header />
+
+      <div id="dashboard-user" className="dashboard-user-info">
         <img src={user?.avatar} />
-        <p>
-          <Logout />
-        </p>
+        <div className="dashboard-user-log">
+          <h2>{user?.name}</h2>
+        </div>
+        <button onClick={handleShowSnapshotsNew} className="custom-btn-4">
+          Create Snapshot
+        </button>
       </div>
-      <div id="dashboard-snapshots">
-        <h2>Your Snapshots</h2>
-        <button onClick={handleShowSnapshotsNew}>Create Snapshot</button>
+      <div id="dashboard-snapshots" className="dashboard-snapshots">
         {snapshots?.map((snapshot) => (
-          <div key={snapshot.id} id="snapshot-index">
-            <Link to={`/snapshots/${snapshot.id}`}>
-              <h2>{snapshot.title}</h2>
+          <div key={snapshot.id}>
+            <Link to={`/snapshots/${snapshot.id}`} style={{ textDecoration: "none" }}>
+              <h2 className="custom-link">{snapshot.title}</h2>
               <img src={snapshot.image} />
             </Link>
           </div>
         ))}
       </div>
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 }

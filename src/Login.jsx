@@ -50,7 +50,7 @@ export function Login() {
           <button type="submit" className="custom-btn">
             Login
           </button>
-          <button className="custom-btn">
+          <button className="custom-btn-2">
             <Link to="/signup" className="custom-link">
               Create Account
             </Link>

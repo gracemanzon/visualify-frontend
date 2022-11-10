@@ -1,19 +1,3 @@
-:root {
-  font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
-  font-size: 16px;
-  line-height: 24px;
-  font-weight: 400;
-
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-text-size-adjust: 100%;
-}
-
 body {
   background-color: #191414;
   margin: 0;
@@ -21,7 +5,9 @@ body {
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
-  border: 1px solid red;
+  color: rgba(255, 255, 255, 0.87);
+  font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
+  /* border: 1px solid red; */
 }
 
 html {
@@ -56,10 +42,35 @@ form input {
 .login {
   height: 18em;
   /* border: solid red 1px; */
-  width: 500px;
+  width: 100%;
+  padding-top: 3em;
+}
+
+.home {
+  width: 100vw;
+  /* border: 1px solid red; */
+}
+
+.home .brand {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
+  /* border: red 1px solid; */
+}
+
+.home img {
+  width: 100px;
+  /* margin-right: 1.5em; */
+}
+
+.home h2 {
+  margin: 0;
+}
+
+.home h1 {
+  font-size: 2.2em;
+  margin: 0;
 }
 
 .login ul {
@@ -79,7 +90,19 @@ form input {
   width: 10.2em;
   height: 2.1em;
   border: 1px solid #1db954;
-  border-radius: 8px;
+  border-radius: 16px;
+  font-size: 16px;
+  cursor: pointer;
+  background-color: #1db954;
+  font-weight: bold;
+  margin-bottom: 0.5em;
+  color: #ffffff;
+}
+.custom-btn-2 {
+  width: 10.2em;
+  height: 2.1em;
+  border: 1px solid #1db954;
+  border-radius: 16px;
   font-size: 16px;
   cursor: pointer;
   background-color: transparent;
@@ -88,7 +111,64 @@ form input {
   color: #ffffff;
 }
 
+.custom-btn-3 {
+  width: 7.5em;
+  height: 2.1em;
+  border: 1px solid #1db954;
+  border-radius: 16px;
+  font-size: 16px;
+  cursor: pointer;
+  background-color: transparent;
+  font-weight: bold;
+  margin-bottom: 0.5em;
+  color: #ffffff;
+}
+
+.custom-btn-4 {
+  width: 12.8em;
+  height: 2.8em;
+  border: 1px solid #1db954;
+  border-radius: 30px;
+  font-size: 21px;
+  cursor: pointer;
+  background-color: #1db954;
+  font-weight: bold;
+  margin-bottom: 0.5em;
+  color: #ffffff;
+}
+
 .custom-link {
   text-decoration: none;
-  color: inherit;
+  color: white;
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 1.2em;
+}
+
+nav img {
+  width: 175px;
+  margin-right: 0.6em;
+}
+
+.logo {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0;
+}
+
+nav h2 {
+  font-size: 1.2em;
+  font-weight: 300;
+  margin-top: 1.2em;
+}
+
+.dashboard {
+  /* border: red 1px solid; */
+  width: 100vw;
+  /* height: 100vh; */
 }
