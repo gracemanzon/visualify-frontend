@@ -4,6 +4,8 @@ import axios from "axios";
 import { SnapshotsNew } from "./SnapshotsNew";
 import { Modal } from "./Modal";
 import { Header } from "./Header";
+import { SpotifyAuth } from "./SpotifyAuth";
+import { TopTracks } from "./TopTracks";
 
 export function SnapshotsIndex() {
   const params = useParams();
@@ -57,9 +59,13 @@ export function SnapshotsIndex() {
           <button onClick={handleShowSnapshotsNew} className="custom-btn-4">
             Create Snapshot
           </button>
+          <SpotifyAuth />
         </div>
 
-        <div className="dashboard-container">
+        <div id="dashboard-container" className="dashboard-container">
+          <TopTracks />
+        </div>
+        {/* <div className="dashboard-container">
           <div id="dashboard-snapshots" className="dashboard-snapshots">
             <h3>Snapshots</h3>
             {snapshots?.map((snapshot) => (
@@ -104,7 +110,7 @@ export function SnapshotsIndex() {
               </div>
             ))}
           </div>
-        </div>
+        </div> */}
         {/* <Footer /> */}
       </div>
     </div>

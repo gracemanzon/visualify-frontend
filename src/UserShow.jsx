@@ -24,7 +24,9 @@ export function UserShow(props) {
         <img src={user.avatar} />
       </div>
 
-      <div>
+      <TopTracks />
+
+      {/* <div>
         {user.snapshots?.map((snapshot) => (
           <div>
             <Link to={`/snapshots/${snapshot.id}`}>
@@ -43,7 +45,7 @@ export function UserShow(props) {
             <img src={artist.image} />
           </div>
         ))}
-      </div>
+      </div> */}
     </div>
   );
 }
