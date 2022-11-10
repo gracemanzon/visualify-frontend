@@ -2,6 +2,8 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { TopTracks } from "./TopTracks";
 import { TopArtists } from "./TopArtists";
+import { TopPlaylists } from "./TopPlaylists";
+import { RecentlyPlayed } from "./RecentlyPlayed";
 // import { Buffer } from "buffer";
 
 export function SpotifyAuth() {
@@ -18,11 +20,17 @@ export function SpotifyAuth() {
     "user-read-playback-position",
     "user-top-read",
     "user-read-recently-played",
+    "playlist-read-private",
+    "playlist-read-collaborative",
+    "playlist-modify-private",
+    "playlist-modify-public",
   ];
 
   const [token, setToken] = useState("");
   const [topTracks, setTopTracks] = useState([]);
   const [topArtists, setTopArtists] = useState([]);
+  const [topPlaylists, setTopPlaylists] = useState([]);
+  const [recentlyPlayed, setRecentlyPlayed] = useState([]);
 
   useEffect(() => {
     const hash = window.location.hash;
@@ -42,6 +50,30 @@ export function SpotifyAuth() {
     console.log(token);
     setToken(token);
 
+    const playlistsresponse = axios
+      .get("https://api.spotify.com/v1/me/playlists", {
+        headers: {
+          Authorization: "Bearer " + token,
+          "Content-Type": "application/json",
+        },
+      })
+      .then((playlistsresponse) => {
+        console.log(playlistsresponse.data.items);
+        setTopPlaylists(playlistsresponse.data.items);
+      });
+
+    const recentlyplayedsresponse = axios
+      .get("https://api.spotify.com/v1/me/player/recently-played", {
+        headers: {
+          Authorization: "Bearer " + token,
+          "Content-Type": "application/json",
+        },
+      })
+      .then((recentlyplayedsresponse) => {
+        console.log(recentlyplayedsresponse.data.items);
+        setRecentlyPlayed(recentlyplayedsresponse.data.items);
+      });
+
     const tracksresponse = axios
       .get("https://api.spotify.com/v1/me/top/tracks", {
         headers: {
@@ -54,7 +86,7 @@ export function SpotifyAuth() {
         setTopTracks(tracksresponse.data.items);
       });
 
-    console.log(topTracks);
+    // console.log(topTracks);
 
     const artistsresponse = axios
       .get("https://api.spotify.com/v1/me/top/artists", {
@@ -68,7 +100,7 @@ export function SpotifyAuth() {
         setTopArtists(artistsresponse.data.items);
       });
 
-    console.log(topArtists);
+    // console.log(topArtists);
   }, []);
 
   const disconnectSpotify = () => {
@@ -96,6 +128,8 @@ export function SpotifyAuth() {
       )}
       <TopTracks topTracks={topTracks} />
       <TopArtists topArtists={topArtists} />
+      <TopPlaylists topPlaylists={topPlaylists} />
+      <RecentlyPlayed recentlyPlayed={recentlyPlayed} />
     </div>
   );
 }
