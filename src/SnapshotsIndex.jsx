@@ -49,7 +49,7 @@ export function SnapshotsIndex() {
           <SnapshotsNew />
         </Modal>
 
-        <div id="dashboard-user" className="dashboard-user-info">
+        <div id="dashboard-user" className="dashboard-user">
           <img src={user?.avatar} />
           <div className="dashboard-user-log">
             <h2>{user?.name}</h2>
@@ -58,15 +58,46 @@ export function SnapshotsIndex() {
             Create Snapshot
           </button>
         </div>
-        <div id="dashboard-snapshots" className="dashboard-snapshots">
-          {snapshots?.map((snapshot) => (
-            <div key={snapshot.id}>
-              <Link to={`/snapshots/${snapshot.id}`} style={{ textDecoration: "none" }}>
-                <h2 className="custom-link">{snapshot.title}</h2>
-                <img src={snapshot.image} />
-              </Link>
-            </div>
-          ))}
+
+        <div className="dashboard-container">
+          <div id="dashboard-snapshots" className="dashboard-snapshots">
+            {snapshots?.map((snapshot) => (
+              <div key={snapshot.id}>
+                <Link to={`/snapshots/${snapshot.id}`} style={{ textDecoration: "none" }}>
+                  <h2 className="custom-link">{snapshot.title}</h2>
+                  <img src={snapshot.image} />
+                </Link>
+              </div>
+            ))}
+          </div>
+
+          <div id="dashboard-artists" className="dashboard-artists">
+            {user.artists?.map((artist) => (
+              <div>
+                <h2>{artist.name}</h2>
+                <img src={artist.image} />
+              </div>
+            ))}
+          </div>
+
+          <div id="dashboard-songs" className="dashboard-songs">
+            {user.songs?.map((song) => (
+              <div>
+                <h2>{song.title}</h2>
+                <h2>{song.artist}</h2>
+                <h2>{song.album}</h2>
+                <img src={song.album_art} />
+              </div>
+            ))}
+          </div>
+
+          <div id="dashboard-genres" className="dashboard-genres">
+            {user.genres?.map((genre) => (
+              <div>
+                <h2>{genre.title}</h2>
+              </div>
+            ))}
+          </div>
         </div>
         {/* <Footer /> */}
       </div>

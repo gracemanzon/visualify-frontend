@@ -36,6 +36,13 @@ export function UserShow(props) {
             </p>
           </div>
         ))}
+
+        {user.artists?.map((artist) => (
+          <div>
+            <h2>{artist.name}</h2>
+            <img src={artist.image} />
+          </div>
+        ))}
       </div>
     </div>
   );
