@@ -19,7 +19,9 @@ export function Home() {
   return (
     <div className="home">
       <div className="brand">
-        <img src="/src/assets/Spotify_Icon_RGB_Green.png" alt="spotify logo" />
+        <a href="https://open.spotify.com/" target="blank">
+          <img src="/src/assets/Spotify_Icon_RGB_Green.png" alt="spotify logo" />
+        </a>
         <h2> + </h2>
         <h1>Data Visualizer</h1>
       </div>
