@@ -215,5 +215,27 @@ nav h2 {
   object-fit: cover;
 }
 
-.snapshots-new {
+.snapshot-show h1 {
+  color: #ffffff;
+}
+
+.snapshot-show-info {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  text-align: left;
+  margin: 10em 6em;
+}
+
+.snapshot-container {
+  display: flex;
+  justify-content: space-evenly;
+  margin: 6em 0;
+}
+
+.snapshot-container img {
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  object-fit: cover;
 }

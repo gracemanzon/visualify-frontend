@@ -5,6 +5,7 @@ import { Modal } from "./Modal";
 import { ArtistsNew } from "./ArtistsNew";
 import { SongsNew } from "./SongsNew";
 import { GenresNew } from "./GenresNew";
+import { Header } from "./Header";
 
 export function SnapshotShow(props) {
   const params = useParams();
@@ -63,12 +64,9 @@ export function SnapshotShow(props) {
   useEffect(handleSnapshotShow, []);
 
   return (
-    <div id="snapshot-show">
-      <h1>Snapshot Show Action</h1>
-      <h2>{snapshot.title}</h2>
-      <p>
-        {snapshot.start_date} - {snapshot.end_date}
-      </p>
+    <div>
+      <Header />
+
       <Modal show={isArtistsNewVisible} onClose={handleHideArtistsNew}>
         <ArtistsNew />
       </Modal>
@@ -81,43 +79,71 @@ export function SnapshotShow(props) {
         <GenresNew />
       </Modal>
 
-      <div>
-        <Link to="/snapshots">Back to Dashboard</Link>
-        <button onClick={handleShowArtistsNew}>Add Artists</button>
-        <button onClick={handleShowSongsNew}>Add Songs</button>
-        <button onClick={handleShowGenresNew}>Add Genres</button>
-        <button onClick={handleClick}>Delete Snapshot</button>
-      </div>
-
-      <div id="artists-index">
-        <h3>Top Artists</h3>
-        {snapshot.artists?.map((artist) => (
+      <div id="snapshot-show" className="snapshot-show">
+        <div className="snapshot-show-info">
           <div>
-            <img src={artist.image} />
-            <p>{artist.name}</p>
+            <h1>{snapshot.title}</h1>
+            <h3>
+              {snapshot.start_date} - {snapshot.end_date}
+            </h3>
           </div>
-        ))}
-      </div>
 
-      <div id="songs-index">
-        <h3>Top Songs</h3>
-        {snapshot.songs?.map((song) => (
           <div>
-            <p>{song.title}</p>
-            <p>{song.artist}</p>
-            <p>{song.album}</p>
-            <img src={song.album_art} />
-          </div>
-        ))}
-      </div>
+            <button className="custom-btn-2">
+              <Link to="/snapshots" className="custom-link">
+                Back to Dashboard
+              </Link>
+            </button>
 
-      <div id="genres-index">
-        <h3>Top Genres</h3>
-        {snapshot.genres?.map((genre) => (
-          <div>
-            <p>{genre.title}</p>
+            <button onClick={handleClick} className="custom-btn-2" style={{ color: "#d61313" }}>
+              Delete Snapshot
+            </button>
           </div>
-        ))}
+        </div>
+
+        <div className="snapshot-container">
+          <div id="artists-index">
+            <h3>Artists</h3>
+            <button onClick={handleShowArtistsNew} className="custom-btn">
+              Add Artists
+            </button>
+            {snapshot.artists?.map((artist) => (
+              <div>
+                <h4>{artist.name}</h4>
+                <img src={artist.image} />
+              </div>
+            ))}
+          </div>
+
+          <div id="songs-index">
+            <h3>Songs</h3>
+            <button onClick={handleShowSongsNew} className="custom-btn">
+              Add Songs
+            </button>
+            {snapshot.songs?.map((song) => (
+              <div>
+                <h4>"{song.title}"</h4>
+                <h4>{song.artist}</h4>
+                <h4>
+                  <em>{song.album}</em>
+                </h4>
+                <img src={song.album_art} />
+              </div>
+            ))}
+          </div>
+
+          <div id="genres-index">
+            <h3>Genres</h3>
+            <button onClick={handleShowGenresNew} className="custom-btn">
+              Add Genres
+            </button>
+            {snapshot.genres?.map((genre) => (
+              <div>
+                <h4>{genre.title}</h4>
+              </div>
+            ))}
+          </div>
+        </div>
       </div>
     </div>
   );
