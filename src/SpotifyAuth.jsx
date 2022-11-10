@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { TopTracks } from "./TopTracks";
+import { TopArtists } from "./TopArtists";
 // import { Buffer } from "buffer";
 
 export function SpotifyAuth() {
@@ -21,6 +22,7 @@ export function SpotifyAuth() {
 
   const [token, setToken] = useState("");
   const [topTracks, setTopTracks] = useState([]);
+  const [topArtists, setTopArtists] = useState([]);
 
   useEffect(() => {
     const hash = window.location.hash;
@@ -53,6 +55,20 @@ export function SpotifyAuth() {
       });
 
     console.log(topTracks);
+
+    const artistsresponse = axios
+      .get("https://api.spotify.com/v1/me/top/artists", {
+        headers: {
+          Authorization: "Bearer " + token,
+          "Content-Type": "application/json",
+        },
+      })
+      .then((artistsresponse) => {
+        console.log(artistsresponse.data.items);
+        setTopArtists(artistsresponse.data.items);
+      });
+
+    console.log(topArtists);
   }, []);
 
   const disconnectSpotify = () => {
@@ -79,6 +95,7 @@ export function SpotifyAuth() {
         </button>
       )}
       <TopTracks topTracks={topTracks} />
+      <TopArtists topArtists={topArtists} />
     </div>
   );
 }
