@@ -18,28 +18,26 @@ export function SnapshotsNew(props) {
   };
 
   return (
-    <div id="snapshots-new">
+    <div id="snapshots-new" className="snapshots-new">
       <div>
-        <div>Add Snapshot</div>
+        <h3>Start New Snapshot</h3>
         <form onSubmit={handleSubmit}>
           <div>
-            <p>Title:</p>
-            <input name="title" type="text" />
+            <input name="title" type="text" placeholder="title" />
           </div>
           <div>
-            <p>Image:</p>
-            <input name="image" type="text" />
+            <input name="image" type="text" placeholder="image url" />
           </div>
           <div>
-            <p>Start Date:</p>
-            <input name="start_date" type="text" />
+            <input name="start_date" type="text" placeholder="start date" />
           </div>
           <div>
-            <p>End Date:</p>
-            <input name="end_date" type="text" />
+            <input name="end_date" type="text" placeholder="end date" />
           </div>
           <div>
-            <button type="submit">Create Snapshot</button>
+            <button type="submit" className="custom-btn-5">
+              Create Snapshot
+            </button>
           </div>
         </form>
       </div>

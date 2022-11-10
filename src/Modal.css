@@ -11,13 +11,13 @@
 
 .modal-main {
   position: fixed;
-  background: white;
+  background: #191414;
   width: 36%;
   height: auto;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  padding: 1em;
+  padding: 4em;
   text-align: center;
 }
 

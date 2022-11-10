@@ -145,6 +145,19 @@ form input {
   color: #ffffff;
 }
 
+.custom-btn-5 {
+  width: 12.8em;
+  height: 2.8em;
+  border: 1px solid #1db954;
+  border-radius: 30px;
+  font-size: 16px;
+  cursor: pointer;
+  background-color: #1db954;
+  font-weight: bold;
+  margin-top: 1.5em;
+  color: #ffffff;
+}
+
 .custom-link {
   text-decoration: none;
   color: white;
@@ -200,4 +213,7 @@ nav h2 {
   height: 150px;
   border-radius: 6px;
   object-fit: cover;
+}
+
+.snapshots-new {
 }
