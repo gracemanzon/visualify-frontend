@@ -61,10 +61,11 @@ export function SnapshotsIndex() {
 
         <div className="dashboard-container">
           <div id="dashboard-snapshots" className="dashboard-snapshots">
+            <h3>Snapshots</h3>
             {snapshots?.map((snapshot) => (
               <div key={snapshot.id}>
                 <Link to={`/snapshots/${snapshot.id}`} style={{ textDecoration: "none" }}>
-                  <h2 className="custom-link">{snapshot.title}</h2>
+                  <h4 className="custom-link">{snapshot.title}</h4>
                   <img src={snapshot.image} />
                 </Link>
               </div>
@@ -72,29 +73,34 @@ export function SnapshotsIndex() {
           </div>
 
           <div id="dashboard-artists" className="dashboard-artists">
+            <h3>Top Artists</h3>
             {user.artists?.map((artist) => (
               <div>
-                <h2>{artist.name}</h2>
+                <h4>{artist.name}</h4>
                 <img src={artist.image} />
               </div>
             ))}
           </div>
 
           <div id="dashboard-songs" className="dashboard-songs">
+            <h3>Top Songs</h3>
             {user.songs?.map((song) => (
               <div>
-                <h2>{song.title}</h2>
-                <h2>{song.artist}</h2>
-                <h2>{song.album}</h2>
+                <h4>"{song.title}"</h4>
+                <h4>{song.artist}</h4>
+                <h4>
+                  <em>{song.album}</em>
+                </h4>
                 <img src={song.album_art} />
               </div>
             ))}
           </div>
 
           <div id="dashboard-genres" className="dashboard-genres">
+            <h3>Top Genres</h3>
             {user.genres?.map((genre) => (
               <div>
-                <h2>{genre.title}</h2>
+                <h4>{genre.title}</h4>
               </div>
             ))}
           </div>
