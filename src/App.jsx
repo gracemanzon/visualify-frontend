@@ -27,7 +27,7 @@ function App() {
         <Route path="/snapshots/:id" element={<SnapshotShow />} />
         <Route path="/users/:id" element={<UserShow />} />
       </Routes>
-      <Footer />
+      {/* <Footer /> */}
     </BrowserRouter>
   );
 }

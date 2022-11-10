@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import { SnapshotsNew } from "./SnapshotsNew";
 import { Modal } from "./Modal";
+import { Footer } from "./Footer";
 
 export function SnapshotsIndex() {
   const params = useParams();
@@ -67,6 +68,7 @@ export function SnapshotsIndex() {
           </div>
         ))}
       </div>
+      <Footer />
     </div>
   );
 }
