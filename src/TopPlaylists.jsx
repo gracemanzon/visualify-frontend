@@ -1,7 +1,7 @@
 export function TopPlaylists(props) {
   return (
     <div id="top-playlists" className="top-playlists">
-      <h2>Top Playlists</h2>
+      <h2>All Playlists</h2>
       <div className="top-playlists-wrapper">
         {props.topPlaylists?.map((playlist) => (
           <div key={playlist.id} className="playlist-wrapper">

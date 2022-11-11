@@ -1,4 +1,5 @@
 import Plot from "react-plotly.js";
+import { randomHexColor } from "random-hex-color-generator";
 
 export function TopTracks(props) {
   let plotData = [];
@@ -25,9 +26,14 @@ export function TopTracks(props) {
               y: popularity,
               type: "scatter",
               mode: "lines",
-              marker: { color: "#f780a9" },
+              marker: { color: randomHexColor() },
             },
-            { type: "bar", x: titles, y: popularity, marker: { color: "#344774" } },
+            {
+              type: "bar",
+              x: titles,
+              y: popularity,
+              marker: { color: randomHexColor() },
+            },
           ]}
           layout={{
             title: "x Popularity",
