@@ -1,9 +1,11 @@
 import Plot from "react-plotly.js";
+import { randomHexColor } from "random-hex-color-generator";
 
 export function TopArtists(props) {
   let plotData = [];
   let titles = [];
   let followers = [];
+  let popularity = [];
 
   return (
     <div id="top-artists" className="top-artists">
@@ -12,6 +14,7 @@ export function TopArtists(props) {
         {props.topArtists?.map((each) => {
           titles.push(each.name);
           followers.push(each.followers.total);
+          popularity.push(each.popularity);
 
           plotData["title"] = titles;
           plotData["followers"] = followers;
@@ -25,9 +28,30 @@ export function TopArtists(props) {
               y: followers,
               mode: "markers",
               marker: {
-                color: ["#297361", "#F780A9", "#62A4F7", "#FE744D", "#FAE84B", "#B840A0"],
-                opacity: [1, 0.8, 0.6, 0.4],
-                size: [100, 83, 66, 49, 32, 15],
+                color: [
+                  randomHexColor(),
+                  randomHexColor(),
+                  randomHexColor(),
+                  randomHexColor(),
+                  randomHexColor(),
+                  randomHexColor(),
+                  randomHexColor(),
+                  randomHexColor(),
+                  randomHexColor(),
+                  randomHexColor(),
+                  randomHexColor(),
+                  randomHexColor(),
+                  randomHexColor(),
+                  randomHexColor(),
+                  randomHexColor(),
+                  randomHexColor(),
+                  randomHexColor(),
+                  randomHexColor(),
+                  randomHexColor(),
+                  randomHexColor(),
+                ],
+                opacity: 0.5,
+                size: popularity,
               },
             },
             // {

@@ -89,7 +89,7 @@ export function Home() {
     setToken(token);
 
     const playlistsresponse = axios
-      .get("https://api.spotify.com/v1/me/playlists?limit=6", {
+      .get("https://api.spotify.com/v1/me/playlists?limit=16", {
         headers: {
           Authorization: "Bearer " + token,
           "Content-Type": "application/json",
@@ -115,7 +115,7 @@ export function Home() {
       });
 
     const tracksresponse = axios
-      .get("https://api.spotify.com/v1/me/top/tracks?limit=6", {
+      .get("https://api.spotify.com/v1/me/top/tracks?limit=16", {
         headers: {
           Authorization: "Bearer " + token,
           "Content-Type": "application/json",
@@ -129,7 +129,7 @@ export function Home() {
     // console.log(topTracks);
 
     const artistsresponse = axios
-      .get("https://api.spotify.com/v1/me/top/artists?limit=6", {
+      .get("https://api.spotify.com/v1/me/top/artists?limit=16", {
         headers: {
           Authorization: "Bearer " + token,
           "Content-Type": "application/json",
