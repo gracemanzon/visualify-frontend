@@ -155,7 +155,7 @@ export function Home() {
         <div id="dashboard-user" className="dashboard-user">
           <img src={user?.avatar} />
           <div className="dashboard-user-log">
-            <h2>{user?.name}</h2>
+            <h2>Welcome back, {user?.name}!</h2>
           </div>
           <button onClick={handleShowSnapshotsNew} className="custom-btn-4">
             Create Snapshot
