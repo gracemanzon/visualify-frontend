@@ -8,7 +8,7 @@ import { TopArtists } from "./TopArtists";
 import { TopTracks } from "./TopTracks";
 import { TopPlaylists } from "./TopPlaylists";
 import { RecentlyPlayed } from "./RecentlyPlayed";
-import SpotifyPlayer from "react-spotify-player";
+// import SpotifyPlayer from "react-spotify-player";
 
 export function Home() {
   const params = useParams();
@@ -40,7 +40,7 @@ export function Home() {
   const [topArtists, setTopArtists] = useState([]);
   const [topPlaylists, setTopPlaylists] = useState([]);
   const [recentlyPlayed, setRecentlyPlayed] = useState([]);
-  const [webPlayerList, setWebPlayerList] = useState([]);
+  // const [webPlayerList, setWebPlayerList] = useState([]);
 
   const handleSnapshotsIndex = () => {
     console.log("handleSnapshotsIndex");
@@ -97,12 +97,12 @@ export function Home() {
       .then((playlistsresponse) => {
         console.log(playlistsresponse.data.items);
         setTopPlaylists(playlistsresponse.data.items);
-        console.log(playlistsresponse.data.items[4].id);
-        setWebPlayerList(playlistsresponse.data.items[4].id);
+        // console.log(playlistsresponse.data.items[4].id);
+        // setWebPlayerList(playlistsresponse.data.items[4].id);
       });
 
     const recentlyplayedsresponse = axios
-      .get("https://api.spotify.com/v1/me/player/recently-played?limit=6", {
+      .get("https://api.spotify.com/v1/me/player/recently-played?limit=3", {
         headers: {
           Authorization: "Bearer " + token,
           "Content-Type": "application/json",
@@ -194,7 +194,7 @@ export function Home() {
         </div>
 
         <div id="dashboard-container" className="dashboard-container">
-          <SpotifyPlayer uri={`spotify:playlist:${webPlayerList}`} size={size} view={view} theme={theme} />
+          {/* <SpotifyPlayer uri={`spotify:playlist:${webPlayerList}`} size={size} view={view} theme={theme} /> */}
           <RecentlyPlayed recentlyPlayed={recentlyPlayed} />
           <TopArtists topArtists={topArtists} />
           <TopTracks topTracks={topTracks} />
