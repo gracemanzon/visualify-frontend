@@ -6,7 +6,7 @@ export function Header() {
       <nav>
         <div className="logo">
           <a href="https://open.spotify.com/" target="blank">
-            <img src="/src/assets/Spotify_Logo_RGB_Green.png" alt="spotify logo" />
+            <img src="/src/assets/Spotify_Icon_RGB_Green.png" />
           </a>
           <h3>Visualify Dashboard</h3>
         </div>

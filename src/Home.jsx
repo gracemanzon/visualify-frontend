@@ -8,7 +8,8 @@ import { TopArtists } from "./TopArtists";
 import { TopTracks } from "./TopTracks";
 import { TopPlaylists } from "./TopPlaylists";
 import { RecentlyPlayed } from "./RecentlyPlayed";
-// import SpotifyPlayer from "react-spotify-player";
+import SpotifyPlayer from "react-spotify-player";
+import { roundToNearestMinutes } from "date-fns";
 
 export function Home() {
   const params = useParams();
@@ -40,7 +41,7 @@ export function Home() {
   const [topArtists, setTopArtists] = useState([]);
   const [topPlaylists, setTopPlaylists] = useState([]);
   const [recentlyPlayed, setRecentlyPlayed] = useState([]);
-  // const [webPlayerList, setWebPlayerList] = useState([]);
+  const [webPlayerList, setWebPlayerList] = useState([]);
 
   const handleSnapshotsIndex = () => {
     console.log("handleSnapshotsIndex");
@@ -98,7 +99,7 @@ export function Home() {
         console.log(playlistsresponse.data.items);
         setTopPlaylists(playlistsresponse.data.items);
         // console.log(playlistsresponse.data.items[4].id);
-        // setWebPlayerList(playlistsresponse.data.items[4].id);
+        setWebPlayerList(playlistsresponse.data.items[4].id);
       });
 
     const recentlyplayedsresponse = axios
@@ -148,13 +149,6 @@ export function Home() {
     window.location.href = "/home";
   };
 
-  const size = {
-    width: 300,
-    height: 500,
-  };
-  const view = "list"; // or 'coverart'
-  const theme = "black";
-
   return (
     <div>
       <Header />
@@ -194,14 +188,31 @@ export function Home() {
         </div>
 
         <div id="dashboard-container" className="dashboard-container">
-          {/* <SpotifyPlayer uri={`spotify:playlist:${webPlayerList}`} size={size} view={view} theme={theme} /> */}
-          <RecentlyPlayed recentlyPlayed={recentlyPlayed} />
+          {/* <RecentlyPlayed recentlyPlayed={recentlyPlayed} /> */}
           <TopArtists topArtists={topArtists} />
           <TopTracks topTracks={topTracks} />
           <TopPlaylists topPlaylists={topPlaylists} />
         </div>
+      </div>
+    </div>
+  );
+}
 
-        {/* <div className="dashboard-container">
+// const size = {
+//   width: 600,
+//   height: 96,
+// };
+// const view = "list"; // or 'coverart'
+// const theme = "black";
+
+{
+  /* <div className="webplayer">
+            <SpotifyPlayer uri={`spotify:playlist:${webPlayerList}`} size={size} view={view} theme={theme} />
+          </div> */
+}
+
+{
+  /* <div className="dashboard-container">
           <div id="dashboard-snapshots" className="dashboard-snapshots">
             <h3>Snapshots</h3>
             {snapshots?.map((snapshot) => (
@@ -246,9 +257,8 @@ export function Home() {
               </div>
             ))}
           </div>
-        </div> */}
-        {/* <Footer /> */}
-      </div>
-    </div>
-  );
+        </div> */
+}
+{
+  /* <Footer /> */
 }

@@ -1,16 +1,57 @@
+import Plot from "react-plotly.js";
+
 export function TopTracks(props) {
+  let plotData = [];
+  let titles = [];
+  let popularity = [];
+
   return (
     <div id="top-tracks" className="top-tracks">
       <h2>Top Tracks</h2>
+      <div className="top-tracks-plot">
+        {props.topTracks?.map((each) => {
+          titles.push(each.name);
+          popularity.push(each.popularity);
+
+          plotData["title"] = titles;
+          plotData["Popularity"] = popularity;
+
+          return plotData;
+        })}
+        <Plot
+          data={[
+            {
+              x: titles,
+              y: popularity,
+              type: "scatter",
+              mode: "lines",
+              marker: { color: "f780a9" },
+            },
+            { type: "bar", x: titles, y: popularity, marker: { color: "#344774" } },
+          ]}
+          layout={{
+            width: "1000",
+            height: 300,
+            plot_bgcolor: "#191414",
+            paper_bgcolor: "#191414",
+            font: {
+              size: 12,
+              color: "#ffffff",
+            },
+          }}
+        />
+      </div>
       <div className="top-tracks-wrapper">
         {props.topTracks?.map((track) => (
           <div key={track.id} className="track-wrapper">
-            <h3>"{track.name}"</h3>
-            <h4>{track.artists[0].name}</h4>
-            <h4>
-              <em>{track.album.name}</em>
-            </h4>
             <img src={track.album.images[0].url} />
+            <div>
+              <h3>"{track.name}"</h3>
+              <h4>{track.artists[0].name}</h4>
+              <h4>
+                <em>{track.album.name}</em>
+              </h4>
+            </div>
           </div>
         ))}
       </div>
