@@ -51,7 +51,7 @@ export function SpotifyAuth() {
     setToken(token);
 
     const playlistsresponse = axios
-      .get("https://api.spotify.com/v1/me/playlists", {
+      .get("https://api.spotify.com/v1/me/playlists?limit=6", {
         headers: {
           Authorization: "Bearer " + token,
           "Content-Type": "application/json",
@@ -63,7 +63,7 @@ export function SpotifyAuth() {
       });
 
     const recentlyplayedsresponse = axios
-      .get("https://api.spotify.com/v1/me/player/recently-played", {
+      .get("https://api.spotify.com/v1/me/player/recently-played?limit=6", {
         headers: {
           Authorization: "Bearer " + token,
           "Content-Type": "application/json",
@@ -75,7 +75,7 @@ export function SpotifyAuth() {
       });
 
     const tracksresponse = axios
-      .get("https://api.spotify.com/v1/me/top/tracks", {
+      .get("https://api.spotify.com/v1/me/top/tracks?limit=6", {
         headers: {
           Authorization: "Bearer " + token,
           "Content-Type": "application/json",
@@ -89,7 +89,7 @@ export function SpotifyAuth() {
     // console.log(topTracks);
 
     const artistsresponse = axios
-      .get("https://api.spotify.com/v1/me/top/artists", {
+      .get("https://api.spotify.com/v1/me/top/artists?limit=6", {
         headers: {
           Authorization: "Bearer " + token,
           "Content-Type": "application/json",
