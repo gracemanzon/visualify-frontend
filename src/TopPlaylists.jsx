@@ -6,6 +6,7 @@ export function TopPlaylists(props) {
         {props.topPlaylists?.map((playlist) => (
           <div key={playlist.id} className="playlist-wrapper">
             <h3>{playlist.name}</h3>
+            <h4>Tracks: {playlist.tracks.total}</h4>
             <img src={playlist.images[0].url} />
           </div>
         ))}
