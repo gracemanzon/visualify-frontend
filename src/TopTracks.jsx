@@ -14,7 +14,7 @@ export function TopTracks(props) {
           popularity.push(each.popularity);
 
           plotData["title"] = titles;
-          plotData["Popularity"] = popularity;
+          plotData["popularity"] = popularity;
 
           return plotData;
         })}
@@ -25,13 +25,14 @@ export function TopTracks(props) {
               y: popularity,
               type: "scatter",
               mode: "lines",
-              marker: { color: "f780a9" },
+              marker: { color: "#f780a9" },
             },
             { type: "bar", x: titles, y: popularity, marker: { color: "#344774" } },
           ]}
           layout={{
+            title: "x Popularity",
             width: "1000",
-            height: 300,
+            height: 500,
             plot_bgcolor: "#191414",
             paper_bgcolor: "#191414",
             font: {
