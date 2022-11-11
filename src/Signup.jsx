@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 export function Signup() {
   const [errors, setErrors] = useState([]);
@@ -13,7 +14,7 @@ export function Signup() {
       .then((response) => {
         console.log(response.data);
         event.target.reset();
-        window.location.href = "/";
+        window.location.href = "/home";
       })
       .catch((error) => {
         console.log(error.response.data.errors);
@@ -22,8 +23,8 @@ export function Signup() {
   };
 
   return (
-    <div id="signup">
-      <h1>Signup</h1>
+    <div id="signup" className="signup">
+      <h2>Account Creation</h2>
       <ul>
         {errors.map((error) => (
           <li key={error}>{error}</li>
@@ -31,27 +32,29 @@ export function Signup() {
       </ul>
       <form onSubmit={handleSubmit}>
         <div>
-          <p>Name:</p>
-          <input name="name" type="text" />
+          <input name="name" type="text" placeholder="username" />
         </div>
         <div>
-          <p>Avatar:</p>
-          <input name="avatar" type="text" />
+          <input name="avatar" type="text" placeholder="avatar image url" />
         </div>
         <div>
-          <p>Email:</p>
-          <input name="email" type="text" />
+          <input name="email" type="text" placeholder="email address" />
         </div>
         <div>
-          <p>Password:</p>
-          <input name="password" type="text" />
+          <input name="password" type="password" placeholder="password" />
         </div>
         <div>
-          <p>Password Confirmation:</p>
-          <input name="password_confirmation" type="text" />
+          <input name="password_confirmation" type="password" placeholder="confirm password" />
         </div>
-        <div>
-          <button type="submit">Create Account</button>
+        <div className="btn-container">
+          <button type="submit" className="custom-btn">
+            Create Account
+          </button>
+          <button className="custom-btn-2">
+            <Link to="/" className="custom-link">
+              Return to Login
+            </Link>
+          </button>
         </div>
       </form>
     </div>

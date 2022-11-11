@@ -76,6 +76,14 @@ form input {
   /* border: 1px solid red; */
 }
 
+.signup {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100vw;
+  border: 1px solid red;
+}
+
 .custom-btn {
   background-color: #1db954;
   border: none;
