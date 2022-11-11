@@ -7,7 +7,7 @@ body {
   min-height: 100vh;
   color: rgba(255, 255, 255, 0.87);
   font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
-  /* border: 1px solid red; */
+  border: 1px solid red;
 }
 
 html {
@@ -23,8 +23,8 @@ h1 {
 
 h2 {
   font-size: 2.4em;
-  font-weight: 900;
-  line-height: 1.1;
+  font-weight: 600;
+  line-height: 0.6;
 }
 
 h3 {
@@ -39,207 +39,68 @@ h4 {
   line-height: 1.1;
 }
 
+.login {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  /* border: solid red 1px; */
+}
+
+.login img {
+  width: 350px;
+  /* margin-right: 1.5em; */
+}
+
+form {
+  margin: 2em 0;
+}
+
 form input {
-  width: 16em;
+  width: 20em;
   padding: 1em;
   margin: 0.6em;
   border-radius: 8px;
   outline: none;
+  font-size: 14px;
 }
 
-.login {
-  height: 18em;
-  /* border: solid red 1px; */
-  width: 100%;
-  padding-top: 3em;
-}
-
-.home {
-  width: 100vw;
-  /* border: 1px solid red; */
-}
-
-.home .brand {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  /* border: red 1px solid; */
-}
-
-.home img {
-  width: 100px;
-  /* margin-right: 1.5em; */
-}
-
-.home h2 {
-  margin: 0;
-}
-
-.home h1 {
-  font-size: 2.2em;
-  margin: 0;
-}
-
-.login ul {
-  list-style: none;
-  /* border: 1px solid red; */
-  padding: 0;
-}
 .btn-container {
-  /* border: 1px solid red; */
+  margin: 2em 0;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   align-items: center;
-  margin-top: 3em;
+  height: 120px;
+  /* border: 1px solid red; */
 }
 
 .custom-btn {
-  width: 10.2em;
-  height: 2.1em;
-  border: 1px solid #1db954;
-  border-radius: 16px;
-  font-size: 16px;
-  cursor: pointer;
   background-color: #1db954;
-  font-weight: bold;
-  margin-bottom: 0.5em;
+  border: none;
+  border-radius: 32px;
   color: #ffffff;
+  font-size: 22px;
+  font-weight: bold;
+  width: 210px;
+  height: 42px;
+  cursor: pointer;
 }
+
 .custom-btn-2 {
-  width: 10.2em;
-  height: 2.1em;
-  border: 1px solid #1db954;
-  border-radius: 16px;
-  font-size: 16px;
-  cursor: pointer;
   background-color: transparent;
-  font-weight: bold;
-  margin-bottom: 0.5em;
+  border: solid #1db954 1px;
+  border-radius: 32px;
   color: #ffffff;
-}
-
-.custom-btn-3 {
-  width: 7.5em;
-  height: 2.1em;
-  border: 1px solid #1db954;
-  border-radius: 16px;
-  font-size: 16px;
+  font-size: 22px;
+  font-weight: bold;
+  width: 210px;
+  height: 42px;
   cursor: pointer;
-  background-color: transparent;
-  font-weight: bold;
-  color: #ffffff;
-  margin-right: 1em;
-}
-
-.custom-btn-4 {
-  width: 12.8em;
-  height: 2.8em;
-  border: 1px solid #1db954;
-  border-radius: 30px;
-  font-size: 21px;
-  cursor: pointer;
-  background-color: #1db954;
-  font-weight: bold;
-  margin-bottom: 0.5em;
-  color: #ffffff;
-}
-
-.custom-btn-5 {
-  width: 12.8em;
-  height: 2.8em;
-  border: 1px solid #1db954;
-  border-radius: 30px;
-  font-size: 16px;
-  cursor: pointer;
-  background-color: #1db954;
-  font-weight: bold;
-  margin-top: 1.5em;
-  color: #ffffff;
 }
 
 .custom-link {
-  text-decoration: none;
-  color: white;
-}
-
-nav {
-  width: 100vw;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-nav img {
-  width: 175px;
-  margin-right: 0.6em;
-}
-
-.logo {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  padding: 0;
-  margin-left: 1em;
-}
-
-nav h2 {
-  font-size: 1.2em;
-  font-weight: 300;
-  margin-top: 1.2em;
-}
-
-.dashboard {
-  /* border: red 1px solid; */
-  width: 100vw;
-}
-
-.dashboard-user img {
-  width: 250px;
-  height: 250px;
-  border-radius: 50%;
-  object-fit: cover;
-}
-
-.dashboard-container {
-  display: flex;
-  justify-content: space-around;
-  margin: 6em 0;
-  /* border: 1px solid red; */
-}
-
-.dashboard-container img {
-  width: 150px;
-  height: 150px;
-  border-radius: 6px;
-  object-fit: cover;
-}
-
-.snapshot-show {
-  width: 100vw;
-}
-
-.snapshot-show h1 {
   color: #ffffff;
-}
-
-.snapshot-show-info {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  text-align: left;
-  margin: 10em 6em;
-}
-
-.snapshot-container {
-  display: flex;
-  justify-content: space-evenly;
-  margin: 6em 0;
-}
-
-.snapshot-container img {
-  width: 250px;
-  height: 250px;
-  border-radius: 50%;
-  object-fit: cover;
+  text-decoration: none;
 }

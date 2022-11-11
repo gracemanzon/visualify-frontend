@@ -32,8 +32,10 @@ export function Login() {
 
   return (
     <div id="login" className="login">
-      {/* <h2>Login</h2> */}
-
+      <a href="https://open.spotify.com/" target="blank">
+        <img src="/src/assets/Spotify_Logo_RGB_Green.png" alt="spotify logo" />
+      </a>
+      <h2>Data Visualizer</h2>
       <form onSubmit={handleSubmit}>
         <div>
           <input name="email" type="text" placeholder="email" />
