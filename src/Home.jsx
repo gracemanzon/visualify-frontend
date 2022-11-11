@@ -147,7 +147,7 @@ export function Home() {
   return (
     <div>
       <Header />
-      <div id="snapshots-index" className="dashboard">
+      <div id="dashboard" className="dashboard">
         <Modal show={isSnapshotsNewVisible} onClose={handleHideSnapshotsNew}>
           <SnapshotsNew />
         </Modal>

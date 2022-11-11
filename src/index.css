@@ -39,6 +39,12 @@ h4 {
   line-height: 1.1;
 }
 
+ul {
+  list-style: none;
+  padding: 0;
+  color: #c93c3a;
+}
+
 .login {
   height: 100vh;
   width: 100vw;
