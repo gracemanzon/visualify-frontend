@@ -7,7 +7,7 @@ body {
   min-height: 100vh;
   color: rgba(255, 255, 255, 0.87);
   font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
-  border: 1px solid red;
+  /* border: 1px solid red; */
 }
 
 html {
@@ -35,7 +35,7 @@ h3 {
 
 h4 {
   font-size: 1.2em;
-  font-weight: 900;
+  font-weight: 500;
   line-height: 1.1;
 }
 
@@ -87,7 +87,7 @@ form input {
   flex-direction: column;
   justify-content: center;
   width: 100vw;
-  border: 1px solid red;
+  /* border: 1px solid red; */
 }
 
 nav {
@@ -95,7 +95,7 @@ nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border: 1px red solid;
+  /* border: 1px red solid; */
 }
 
 .logo {
@@ -114,6 +114,81 @@ nav {
 
 .logo-btn {
   padding-right: 1em;
+}
+
+.dashboard {
+  height: 100vh;
+  width: 100vw;
+  padding: 8em 0;
+  /* border: 1px solid blue; */
+}
+
+.dashboard-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  /* border: 1px solid red; */
+}
+
+.dashboard-user {
+  text-align: left;
+  padding-left: 6em;
+  /* border: solid 1px red; */
+}
+
+.dashboard-btn-container {
+  padding-right: 6em;
+  /* border: 1px red solid; */
+}
+
+.dashboard-btn-container .custom-btn {
+  font-size: 18px;
+  margin-right: 1em;
+}
+
+.dashboard-btn-container .custom-btn-2 {
+  font-size: 18px;
+  color: #c93c3a;
+}
+
+.dashboard-container {
+  padding: 12em 0;
+  /* border: 1px solid red; */
+}
+
+.dashboard-container img {
+  width: 150px;
+  border-radius: 6px;
+}
+
+.top-artists-wrapper {
+  display: flex;
+  justify-content: space-around;
+  padding-bottom: 8em;
+}
+
+.top-tracks-wrapper {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  padding-bottom: 8em;
+}
+
+.track-wrapper {
+  width: 400px;
+  /* border: 1px solid red; */
+}
+
+.top-playlists-wrapper {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  padding-bottom: 8em;
+}
+
+.playlist-wrapper {
+  width: 400px;
+  /* border: 1px solid red; */
 }
 
 .custom-btn {

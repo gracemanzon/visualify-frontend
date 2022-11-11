@@ -152,33 +152,39 @@ export function Home() {
           <SnapshotsNew />
         </Modal>
 
-        <div id="dashboard-user" className="dashboard-user">
-          <img src={user?.avatar} />
-          <div className="dashboard-user-log">
-            <h2>Welcome back, {user?.name}!</h2>
+        <div className="dashboard-header">
+          <div id="dashboard-user" className="dashboard-user">
+            <img src={user?.avatar} />
+            <div className="dashboard-user-log">
+              <h2>Welcome back, {user?.name}!</h2>
+            </div>
           </div>
-          <button onClick={handleShowSnapshotsNew} className="custom-btn-4">
-            Create Snapshot
-          </button>
-          {!token ? (
-            <a
-              href={`${authEndpoint}?client_id=${clientId}&redirect_uri=${redirectUri}&scope=${scopes.join(
-                " "
-              )}&response_type=${responseType}`}
-              className="custom-btn-5"
-            >
-              Connect Spotify
-            </a>
-          ) : (
-            <button onClick={disconnectSpotify} className="custom-btn-2">
-              Disconnect Spotify
+          <div className="dashboard-btn-container">
+            <button onClick={handleShowSnapshotsNew} className="custom-btn">
+              Create Snapshot
             </button>
-          )}
+            {!token ? (
+              <button className="custom-btn">
+                <a
+                  href={`${authEndpoint}?client_id=${clientId}&redirect_uri=${redirectUri}&scope=${scopes.join(
+                    " "
+                  )}&response_type=${responseType}`}
+                  className="custom-link"
+                >
+                  Connect Spotify
+                </a>
+              </button>
+            ) : (
+              <button onClick={disconnectSpotify} className="custom-btn-2">
+                Disconnect Spotify
+              </button>
+            )}
+          </div>
         </div>
 
         <div id="dashboard-container" className="dashboard-container">
-          <TopTracks topTracks={topTracks} />
           <TopArtists topArtists={topArtists} />
+          <TopTracks topTracks={topTracks} />
           <TopPlaylists topPlaylists={topPlaylists} />
           <RecentlyPlayed recentlyPlayed={recentlyPlayed} />
         </div>
