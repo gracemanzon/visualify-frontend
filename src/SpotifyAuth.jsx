@@ -106,7 +106,7 @@ export function SpotifyAuth() {
   const disconnectSpotify = () => {
     setToken("");
     window.localStorage.removeItem("token");
-    window.location.href = "/snapshots";
+    window.location.href = "/home";
   };
 
   return (

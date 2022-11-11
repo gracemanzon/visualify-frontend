@@ -22,7 +22,7 @@ export function Login() {
         localStorage.setItem("jwt", response.data.jwt);
         localStorage.setItem("user_id", response.data.user_id);
         event.target.reset();
-        window.location.href = "/snapshots";
+        window.location.href = "/home";
       })
       .catch((error) => {
         console.log(error.response);

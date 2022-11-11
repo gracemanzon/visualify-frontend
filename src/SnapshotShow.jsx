@@ -26,7 +26,7 @@ export function SnapshotShow(props) {
   const handleDestroySnapshot = (snapshot) => {
     axios.delete("http://localhost:3000/snapshots/" + params.id + ".json").then((response) => {
       console.log("Snapshot has been Deleted");
-      window.location.href = "/snapshots";
+      window.location.href = "/home";
     });
   };
 
@@ -90,7 +90,7 @@ export function SnapshotShow(props) {
 
           <div>
             <button className="custom-btn-2">
-              <Link to="/snapshots" className="custom-link">
+              <Link to="/home" className="custom-link">
                 Back to Dashboard
               </Link>
             </button>

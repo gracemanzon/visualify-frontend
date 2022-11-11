@@ -13,7 +13,7 @@ export function SnapshotsNew(props) {
     axios.post("http://localhost:3000/snapshots.json", params).then((response) => {
       const newSnapshot = response.data;
       console.log("New Snapshot Created", newSnapshot);
-      window.location.href = "/snapshots";
+      window.location.href = "/home";
     });
   };
 
