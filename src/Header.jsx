@@ -8,11 +8,13 @@ export function Header() {
           <a href="https://open.spotify.com/" target="blank">
             <img src="/src/assets/Spotify_Logo_RGB_Green.png" alt="spotify logo" />
           </a>
-          <h2>Visualify Dashboard</h2>
+          <h3>Visualify Dashboard</h3>
         </div>
-        <button className="custom-btn-3">
-          <Logout />
-        </button>
+        <div className="logo-btn">
+          <button className="custom-btn-2">
+            <Logout />
+          </button>
+        </div>
       </nav>
     </header>
   );
