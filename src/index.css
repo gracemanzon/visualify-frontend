@@ -191,6 +191,14 @@ nav {
   /* border: 1px solid red; */
 }
 
+.recently-played {
+  text-align: left;
+}
+
+.recently-played-wrapper {
+  padding-bottom: 8em;
+}
+
 .custom-btn {
   background-color: #1db954;
   border: none;

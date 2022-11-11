@@ -8,6 +8,7 @@ import { TopArtists } from "./TopArtists";
 import { TopTracks } from "./TopTracks";
 import { TopPlaylists } from "./TopPlaylists";
 import { RecentlyPlayed } from "./RecentlyPlayed";
+import SpotifyPlayer from "react-spotify-player";
 
 export function Home() {
   const params = useParams();
@@ -39,6 +40,7 @@ export function Home() {
   const [topArtists, setTopArtists] = useState([]);
   const [topPlaylists, setTopPlaylists] = useState([]);
   const [recentlyPlayed, setRecentlyPlayed] = useState([]);
+  const [webPlayerList, setWebPlayerList] = useState([]);
 
   const handleSnapshotsIndex = () => {
     console.log("handleSnapshotsIndex");
@@ -95,6 +97,8 @@ export function Home() {
       .then((playlistsresponse) => {
         console.log(playlistsresponse.data.items);
         setTopPlaylists(playlistsresponse.data.items);
+        console.log(playlistsresponse.data.items[4].id);
+        setWebPlayerList(playlistsresponse.data.items[4].id);
       });
 
     const recentlyplayedsresponse = axios
@@ -144,6 +148,13 @@ export function Home() {
     window.location.href = "/home";
   };
 
+  const size = {
+    width: 300,
+    height: 500,
+  };
+  const view = "list"; // or 'coverart'
+  const theme = "black";
+
   return (
     <div>
       <Header />
@@ -183,10 +194,11 @@ export function Home() {
         </div>
 
         <div id="dashboard-container" className="dashboard-container">
+          <SpotifyPlayer uri={`spotify:playlist:${webPlayerList}`} size={size} view={view} theme={theme} />
+          <RecentlyPlayed recentlyPlayed={recentlyPlayed} />
           <TopArtists topArtists={topArtists} />
           <TopTracks topTracks={topTracks} />
           <TopPlaylists topPlaylists={topPlaylists} />
-          <RecentlyPlayed recentlyPlayed={recentlyPlayed} />
         </div>
 
         {/* <div className="dashboard-container">
