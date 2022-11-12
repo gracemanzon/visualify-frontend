@@ -1,7 +1,7 @@
 import { Link, useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import axios from "axios";
-import { SnapshotsNew } from "./SnapshotsNew";
+// import { SnapshotsNew } from "./SnapshotsNew";
 import { Modal } from "./Modal";
 import { Header } from "./Header";
 import { TopArtists } from "./TopArtists";
@@ -177,39 +177,38 @@ export function Home() {
 
   return (
     <div>
-      <div>
-        <h3>Start New Snapshot</h3>
-
-        <form onSubmit={handleSubmit}>
-          <div>
-            <input name="title" type="text" placeholder="title" />
-          </div>
-          <div>
-            <input name="image" type="text" placeholder="image url" />
-          </div>
-          <div>
-            <input name="start_date" type="date" />
-          </div>
-          {/* <div>
-            <input name="end_date" type="date" />
-          </div> */}
-          <div>
-            <input name="artists" value={topArtists?.map((artist) => artist.name)} type="hidden" />
-          </div>
-          <div>
-            <input name="tracks" value={topTracks?.map((track) => track.name)} type="hidden" />
-          </div>
-          <div>
-            <button type="submit" className="custom-btn-5">
-              Create Snapshot
-            </button>
-          </div>
-        </form>
-      </div>
       <Header />
       <div id="dashboard" className="dashboard">
         <Modal show={isSnapshotsNewVisible} onClose={handleHideSnapshotsNew}>
-          <SnapshotsNew />
+          <div>
+            <h3>New Snapshot</h3>
+
+            <form onSubmit={handleSubmit}>
+              <div>
+                <input name="title" type="text" placeholder="title" />
+              </div>
+              <div>
+                <input name="image" type="text" placeholder="image url" />
+              </div>
+              <div>
+                <input name="start_date" type="date" />
+              </div>
+              {/* <div>
+            <input name="end_date" type="date" />
+          </div> */}
+              <div>
+                <input name="artists" value={topArtists?.map((artist) => artist.name)} type="hidden" />
+              </div>
+              <div>
+                <input name="tracks" value={topTracks?.map((track) => track.name)} type="hidden" />
+              </div>
+              <div>
+                <button type="submit" className="custom-btn-2">
+                  Create Snapshot
+                </button>
+              </div>
+            </form>
+          </div>
         </Modal>
 
         <div className="dashboard-header">
@@ -243,18 +242,20 @@ export function Home() {
         </div>
 
         <div id="dashboard-snapshots" className="dashboard-snapshots">
-          <h3>Snapshots</h3>
-          {snapshots?.map((snapshot) => (
-            <div key={snapshot.id} className="snapshots-index">
-              <Link to={`/snapshots/${snapshot.id}`} style={{ textDecoration: "none" }}>
-                <img src={snapshot.image} style={{ width: "32px" }} />
+          <h2>Snapshots</h2>
+          <div className="snapshots-index-wrapper">
+            {snapshots?.map((snapshot) => (
+              <div key={snapshot.id} className="snapshots-index">
+                <Link to={`/snapshots/${snapshot.id}`} style={{ textDecoration: "none" }}>
+                  <img src={snapshot.image} />
+                </Link>
                 <div>
-                  <h4 className="custom-link">{snapshot.title}</h4>
-                  <h4 className="custom-link">{snapshot.start_date}</h4>
+                  <h3 className="custom-link">{snapshot.title}</h3>
+                  <h3 className="custom-link">{snapshot.start_date}</h3>
                 </div>
-              </Link>
-            </div>
-          ))}
+              </div>
+            ))}
+          </div>
         </div>
 
         <div id="dashboard-container" className="dashboard-container">

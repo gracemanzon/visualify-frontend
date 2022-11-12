@@ -138,13 +138,46 @@ nav {
 }
 
 .dashboard-container {
-  padding: 12em 0;
+  padding: 0 0 12em 0;
   /* border: 1px solid red; */
 }
 
 .dashboard-container img {
   width: 150px;
   border-radius: 6px;
+}
+
+.dashboard-snapshots {
+  margin: 6em 0;
+  border: 1px solid red;
+}
+
+.snapshots-index-wrapper {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  padding-bottom: 8em;
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 2em;
+}
+
+.snapshots-index {
+  width: 400px;
+  display: flex;
+  align-items: center;
+  text-align: left;
+  margin-bottom: 1.3em;
+  border: 1px solid red;
+}
+
+.snapshots-index img {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 6px;
+  margin-right: 1em;
 }
 
 .top-artists-wrapper {
