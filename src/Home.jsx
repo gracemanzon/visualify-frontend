@@ -167,13 +167,15 @@ export function Home() {
       console.log("New snapshots!", newSnapshot);
       window.location.href = "/home";
     });
-
-    // axios.post("http://localhost:3000/snapshots.json", params).then((response) => {
-    //   const newSnapshot = response.data;
-    //   console.log("New Snapshot Created", newSnapshot);
-    //   window.location.href = "/home";
-    // });
   };
+
+  const sendArtistsData = topArtists?.map((artist) => artist.name);
+  const sendTracksData = topTracks?.map((track) => track.name);
+  const sendGenresData = topArtists?.map((artist) => artist.genres).map((genre) => genre);
+  const sendPopularityData = topArtists?.map((artist) => artist.popularity);
+  const sendFollowersData = topArtists?.map((artist) => artist.followers.total);
+
+  console.log("hello", sendArtistsData);
 
   return (
     <div>
@@ -191,16 +193,26 @@ export function Home() {
                 <input name="image" type="text" placeholder="image url" />
               </div>
               <div>
+                <p>Start Date - End Date</p>
                 <input name="start_date" type="date" />
               </div>
-              {/* <div>
-            <input name="end_date" type="date" />
-          </div> */}
               <div>
-                <input name="artists" value={topArtists?.map((artist) => artist.name)} type="hidden" />
+                <input name="end_date" type="date" />
               </div>
               <div>
-                <input name="tracks" value={topTracks?.map((track) => track.name)} type="hidden" />
+                <input name="artists" defaultValue={"/" + sendArtistsData} type="hidden" />
+              </div>
+              <div>
+                <input name="tracks" value={"/" + sendTracksData} type="hidden" />
+              </div>
+              <div>
+                <input name="genres" value={"/" + sendGenresData} type="hidden" />
+              </div>
+              <div>
+                <input name="artist_popularity" value={"/" + sendPopularityData} type="hidden" />
+              </div>
+              <div>
+                <input name="artist_followers" value={"/" + sendFollowersData} type="hidden" />
               </div>
               <div>
                 <button type="submit" className="custom-btn-2">

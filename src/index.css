@@ -253,6 +253,25 @@ nav {
   width: 100vw;
 }
 
+.snapshot-header {
+  margin: 6em 0;
+}
+
+.snapshot-show-btn-container {
+  display: flex;
+  justify-content: space-between;
+  width: 450px;
+  margin-right: auto;
+  margin-left: auto;
+  /* border: 1px solid red; */
+}
+
+.snapshot-container {
+  display: flex;
+  justify-content: space-around;
+  border: solid 1px red;
+}
+
 .custom-btn {
   background-color: #1db954;
   border: none;
