@@ -123,6 +123,12 @@ nav {
   border: 1px solid blue;
 }
 
+.dashboard-user img {
+  width: 325px;
+  height: 325px;
+  object-fit: cover;
+}
+
 .dashboard-btn-container .custom-btn {
   font-size: 18px;
   margin-right: 1em;
@@ -255,6 +261,13 @@ nav {
 
 .snapshot-header {
   margin: 6em 0;
+}
+
+.snapshot-header img {
+  width: 500px;
+  height: 500px;
+  object-fit: cover;
+  border-radius: 21px;
 }
 
 .snapshot-show-btn-container {

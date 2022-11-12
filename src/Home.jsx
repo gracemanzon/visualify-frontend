@@ -175,8 +175,13 @@ export function Home() {
   const sendPopularityData = topArtists?.map((artist) => artist.popularity);
   const sendFollowersData = topArtists?.map((artist) => artist.followers.total);
   const sendTrackPopularityData = topTracks?.map((track) => track.popularity);
-
-  // console.log("hello", sendArtistsData);
+  const sendArtistImagesData = topArtists?.map((artist) => artist.images[0].url);
+  const sendAlbumData = topTracks?.map((track) => track.album.name);
+  const sendAlbumImagesData = topTracks?.map((track) => track.album.images[0].url);
+  const sendRecentlyPlayedData = recentlyPlayed?.map((track) => track.track.name);
+  const sendRecentlyPlayedArtistData = recentlyPlayed?.map((track) => track.track.artists[0].name);
+  const sendTrackArtistData = topTracks?.map((track) => track.artists[0].name);
+  const sendRecentlyPlayedAlbumArtData = recentlyPlayed?.map((track) => track.track.album.images[0].url);
 
   return (
     <div>
@@ -201,13 +206,13 @@ export function Home() {
                 <input name="end_date" type="date" />
               </div>
               <div>
+                <input name="genres" value={"/" + sendGenresData} type="hidden" />
+              </div>
+              <div>
                 <input name="artists" defaultValue={"/" + sendArtistsData} type="hidden" />
               </div>
               <div>
-                <input name="tracks" value={"/" + sendTracksData} type="hidden" />
-              </div>
-              <div>
-                <input name="genres" value={"/" + sendGenresData} type="hidden" />
+                <input name="artist_images" value={"/" + sendArtistImagesData} type="hidden" />
               </div>
               <div>
                 <input name="artist_popularity" value={"/" + sendPopularityData} type="hidden" />
@@ -216,7 +221,28 @@ export function Home() {
                 <input name="artist_followers" value={"/" + sendFollowersData} type="hidden" />
               </div>
               <div>
+                <input name="tracks" value={"/" + sendTracksData} type="hidden" />
+              </div>
+              <div>
+                <input name="track_artist" value={"/" + sendTrackArtistData} type="hidden" />
+              </div>
+              <div>
                 <input name="track_popularity" value={"/" + sendTrackPopularityData} type="hidden" />
+              </div>
+              <div>
+                <input name="album" value={"/" + sendAlbumData} type="hidden" />
+              </div>
+              <div>
+                <input name="album_images" value={"/" + sendAlbumImagesData} type="hidden" />
+              </div>
+              <div>
+                <input name="recently_played" value={"/" + sendRecentlyPlayedData} type="hidden" />
+              </div>
+              <div>
+                <input name="recently_played_artist" value={"/" + sendRecentlyPlayedArtistData} type="hidden" />
+              </div>
+              <div>
+                <input name="recently_played_album_art" value={"/" + sendRecentlyPlayedAlbumArtData} type="hidden" />
               </div>
               <div>
                 <button type="submit" className="custom-btn-2">
@@ -278,7 +304,7 @@ export function Home() {
           {/* <RecentlyPlayed recentlyPlayed={recentlyPlayed} /> */}
           <TopArtists topArtists={topArtists} />
           <TopTracks topTracks={topTracks} />
-          <TopPlaylists topPlaylists={topPlaylists} />
+          {/* <TopPlaylists topPlaylists={topPlaylists} /> */}
         </div>
       </div>
     </div>

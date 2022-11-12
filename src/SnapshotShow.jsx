@@ -109,9 +109,12 @@ export function SnapshotShow(props) {
       <div id="snapshot-show" className="snapshot-show">
         <div className="snapshot-show-info">
           <div className="snapshot-header">
+            <img src={snapshot.image} />
             <h2>{snapshot.title}</h2>
             <h3>
-              {snapshot.start_date} - {snapshot.end_date}
+              <em>
+                {snapshot.start_date} - {snapshot.end_date}
+              </em>
             </h3>
             <div className="snapshot-show-btn-container">
               <button className="custom-btn">
