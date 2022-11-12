@@ -174,8 +174,9 @@ export function Home() {
   const sendGenresData = topArtists?.map((artist) => artist.genres).map((genre) => genre);
   const sendPopularityData = topArtists?.map((artist) => artist.popularity);
   const sendFollowersData = topArtists?.map((artist) => artist.followers.total);
+  const sendTrackPopularityData = topTracks?.map((track) => track.popularity);
 
-  console.log("hello", sendArtistsData);
+  // console.log("hello", sendArtistsData);
 
   return (
     <div>
@@ -213,6 +214,9 @@ export function Home() {
               </div>
               <div>
                 <input name="artist_followers" value={"/" + sendFollowersData} type="hidden" />
+              </div>
+              <div>
+                <input name="track_popularity" value={"/" + sendTrackPopularityData} type="hidden" />
               </div>
               <div>
                 <button type="submit" className="custom-btn-2">

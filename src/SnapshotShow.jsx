@@ -15,6 +15,7 @@ export function SnapshotShow(props) {
   let genresData = [];
   let followersData = [];
   let popularityData = [];
+  let trackPopularityData = [];
 
   const handleSnapshotShow = (snapshot) => {
     axios.get("http://localhost:3000/snapshots/" + params.id + ".json").then((response) => {
@@ -89,6 +90,17 @@ export function SnapshotShow(props) {
     console.log(followersData);
   }
 
+  {
+    snapshot.track_popularity?.map((each) => {
+      trackPopularityData.push(each);
+      plotData["trackPopularity"] = trackPopularityData;
+      return plotData;
+    });
+  }
+  {
+    console.log(trackPopularityData);
+  }
+
   useEffect(handleSnapshotShow, []);
 
   return (
@@ -121,7 +133,6 @@ export function SnapshotShow(props) {
             {snapshot.artists?.map((artist) => (
               <div>
                 <h3>{artist}</h3>
-                {/* <img src={artist.image} /> */}
               </div>
             ))}
           </div>
@@ -134,75 +145,110 @@ export function SnapshotShow(props) {
               </div>
             ))}
           </div>
-
-          {/* <div id="genres-index">
-            <h2>Featured Genres</h2>
-            {snapshot.genres?.map((genre) => (
-              <div>
-                <h3>{genre}</h3>
-              </div>
-            ))}
-          </div> */}
         </div>
 
-        <Plot
-          data={[
-            {
-              // x: artistsData,
-              x: artistsData,
-              y: followersData,
-              type: "scatter",
-              mode: "markers",
-              marker: {
-                color: [
-                  randomHexColor(),
-                  randomHexColor(),
-                  randomHexColor(),
-                  randomHexColor(),
-                  randomHexColor(),
-                  randomHexColor(),
-                  randomHexColor(),
-                  randomHexColor(),
-                  randomHexColor(),
-                  randomHexColor(),
-                  randomHexColor(),
-                  randomHexColor(),
-                  randomHexColor(),
-                  randomHexColor(),
-                  randomHexColor(),
-                  randomHexColor(),
-                ],
-                size: popularityData,
-                symbol: "circle",
+        <div id="snapshot-plots" className="snapshot-plots">
+          <Plot
+            data={[
+              {
+                x: artistsData,
+                y: followersData,
+                type: "scatter",
+                mode: "markers",
+                marker: {
+                  color: [
+                    randomHexColor(),
+                    randomHexColor(),
+                    randomHexColor(),
+                    randomHexColor(),
+                    randomHexColor(),
+                    randomHexColor(),
+                    randomHexColor(),
+                    randomHexColor(),
+                    randomHexColor(),
+                    randomHexColor(),
+                    randomHexColor(),
+                    randomHexColor(),
+                    randomHexColor(),
+                    randomHexColor(),
+                    randomHexColor(),
+                    randomHexColor(),
+                  ],
+                  size: popularityData,
+                  symbol: "circle",
+                },
               },
-            },
-            // {
-            //   // x: artistsData,
-            //   y: popularityData,
-            //   type: "box",
-            //   marker: { color: randomHexColor() },
-            // },
-            // {
-            //   // x: artistsData,
-            //   y: followersData,
-            //   type: "box",
-            //   marker: { color: randomHexColor() },
-            // },
-          ]}
-          layout={{
-            width: 1000,
-            height: 500,
-            plot_bgcolor: "#191414",
-            paper_bgcolor: "#191414",
-            font: {
-              size: 12,
-              color: "#ffffff",
-            },
-          }}
-          config={{
-            scrollZoom: true,
-          }}
-        />
+            ]}
+            layout={{
+              width: 600,
+              height: 600,
+              plot_bgcolor: "#191414",
+              paper_bgcolor: "#191414",
+              font: {
+                size: 12,
+                color: "#ffffff",
+              },
+            }}
+            config={{
+              scrollZoom: true,
+            }}
+          />
+          <Plot
+            data={[
+              {
+                y: tracksData,
+                x: trackPopularityData,
+                type: "box",
+                marker: {
+                  color: randomHexColor(),
+                },
+              },
+            ]}
+            layout={{
+              width: 600,
+              height: 600,
+              plot_bgcolor: "#191414",
+              paper_bgcolor: "#191414",
+              font: {
+                size: 12,
+                color: "#ffffff",
+              },
+              boxmode: "group",
+            }}
+            config={{
+              scrollZoom: true,
+            }}
+          />
+          <Plot
+            data={[
+              {
+                type: "funnelarea",
+                values: [8, 4, 3, 2, 1],
+                text: [genresData[0], genresData[1], genresData[2], genresData[3], genresData[6]],
+                marker: {
+                  colors: ["59D4E8", "DDB6C6", "A696C8", "67EACA", "94D2E6"],
+                  line: { color: ["3E4E88", "606470", "3E4E88", "606470", "3E4E88"], width: [2, 1, 5, 0, 3] },
+                },
+                textfont: { color: "#ffffff" },
+                opacity: 0.65,
+              },
+            ]}
+            layout={{
+              width: 600,
+              height: 600,
+              plot_bgcolor: "#191414",
+              paper_bgcolor: "#191414",
+              font: {
+                size: 12,
+                color: "#ffffff",
+              },
+              boxmode: "group",
+            }}
+            config={{
+              scrollZoom: true,
+            }}
+          />
+        </div>
       </div>
     </div>
   );
