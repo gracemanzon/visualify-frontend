@@ -104,7 +104,7 @@ export function Home() {
       });
 
     const recentlyplayedsresponse = axios
-      .get("https://api.spotify.com/v1/me/player/recently-played?limit=3", {
+      .get("https://api.spotify.com/v1/me/player/recently-played?limit=16", {
         headers: {
           Authorization: "Bearer " + token,
           "Content-Type": "application/json",
@@ -182,6 +182,7 @@ export function Home() {
   const sendRecentlyPlayedArtistData = recentlyPlayed?.map((track) => track.track.artists[0].name);
   const sendTrackArtistData = topTracks?.map((track) => track.artists[0].name);
   const sendRecentlyPlayedAlbumArtData = recentlyPlayed?.map((track) => track.track.album.images[0].url);
+  const sendRecentlyPlayedPopularityData = recentlyPlayed?.map((track) => track.track.popularity);
 
   return (
     <div>
@@ -243,6 +244,9 @@ export function Home() {
               </div>
               <div>
                 <input name="recently_played_album_art" value={"/" + sendRecentlyPlayedAlbumArtData} type="hidden" />
+              </div>
+              <div>
+                <input name="recently_played_popularity" value={"/" + sendRecentlyPlayedPopularityData} type="hidden" />
               </div>
               <div>
                 <button type="submit" className="custom-btn-2">

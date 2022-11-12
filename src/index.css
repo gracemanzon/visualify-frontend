@@ -279,10 +279,51 @@ nav {
   /* border: 1px solid red; */
 }
 
-.snapshot-container {
+.artists-index {
   display: flex;
+  flex-direction: row;
   justify-content: space-around;
-  border: solid 1px red;
+  width: 60vw;
+  margin-left: auto;
+  margin-right: auto;
+  /* border: 1px solid red; */
+}
+
+.artists-index-art img {
+  width: 100px;
+  border-radius: 50%;
+  margin: 0.5em;
+}
+
+.snapshot-details {
+  display: flex;
+}
+
+.songs-index {
+  display: flex;
+  flex-direction: row;
+  width: 450px;
+  border: 1px solid red;
+}
+
+.songs-index-title {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  text-align: left;
+  /* border: 1px solid blue; */
+}
+
+.songs-index-art {
+  display: flex;
+  flex-direction: column;
+  margin-right: 1em;
+}
+
+.songs-index-art img {
+  width: 100px;
+  border-radius: 6px;
+  margin: 0.5em 0;
 }
 
 .custom-btn {
