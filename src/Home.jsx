@@ -89,7 +89,7 @@ export function Home() {
     setToken(token);
 
     const playlistsresponse = axios
-      .get("https://api.spotify.com/v1/me/playlists?limit=16", {
+      .get("https://api.spotify.com/v1/me/playlists?limit=6", {
         headers: {
           Authorization: "Bearer " + token,
           "Content-Type": "application/json",

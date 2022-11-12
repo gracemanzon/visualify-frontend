@@ -34,51 +34,11 @@ export function SnapshotShow(props) {
     handleDestroySnapshot();
   };
 
-  const handleShowArtistsNew = () => {
-    setIsArtistsNewVisible(true);
-  };
-
-  const handleHideArtistsNew = () => {
-    setIsArtistsNewVisible(false);
-    window.location.href = "/snapshots/" + params.id;
-  };
-
-  const handleShowSongsNew = () => {
-    setIsSongsNewVisible(true);
-  };
-
-  const handleHideSongsNew = () => {
-    setIsSongsNewVisible(false);
-    window.location.href = "/snapshots/" + params.id;
-  };
-
-  const handleShowGenresNew = () => {
-    setIsGenresNewVisible(true);
-  };
-
-  const handleHideGenresNew = () => {
-    setIsGenresNewVisible(false);
-    window.location.href = "/snapshots/" + params.id;
-  };
-
   useEffect(handleSnapshotShow, []);
 
   return (
     <div>
       <Header />
-
-      <Modal show={isArtistsNewVisible} onClose={handleHideArtistsNew}>
-        <ArtistsNew />
-      </Modal>
-
-      <Modal show={isSongsNewVisible} onClose={handleHideSongsNew}>
-        <SongsNew />
-      </Modal>
-
-      <Modal show={isGenresNewVisible} onClose={handleHideGenresNew}>
-        <GenresNew />
-      </Modal>
-
       <div id="snapshot-show" className="snapshot-show">
         <div className="snapshot-show-info">
           <div>
@@ -104,9 +64,6 @@ export function SnapshotShow(props) {
         <div className="snapshot-container">
           <div id="artists-index">
             <h3>Artists</h3>
-            <button onClick={handleShowArtistsNew} className="custom-btn">
-              Add Artists
-            </button>
             {snapshot.artists?.map((artist) => (
               <div>
                 <h4>{artist}</h4>
@@ -117,29 +74,10 @@ export function SnapshotShow(props) {
 
           <div id="songs-index">
             <h3>Songs</h3>
-            <button onClick={handleShowSongsNew} className="custom-btn">
-              Add Songs
-            </button>
-            {snapshot.songs?.map((song) => (
-              <div>
-                <h4>"{song.title}"</h4>
-                <h4>{song.artist}</h4>
-                <h4>
-                  <em>{song.album}</em>
-                </h4>
-                <img src={song.album_art} />
-              </div>
-            ))}
-          </div>
 
-          <div id="genres-index">
-            <h3>Genres</h3>
-            <button onClick={handleShowGenresNew} className="custom-btn">
-              Add Genres
-            </button>
-            {snapshot.genres?.map((genre) => (
+            {snapshot.tracks?.map((track) => (
               <div>
-                <h4>{genre.title}</h4>
+                <h4>"{track}"</h4>
               </div>
             ))}
           </div>
@@ -147,4 +85,75 @@ export function SnapshotShow(props) {
       </div>
     </div>
   );
+}
+
+// const handleShowArtistsNew = () => {
+//   setIsArtistsNewVisible(true);
+// };
+
+// const handleHideArtistsNew = () => {
+//   setIsArtistsNewVisible(false);
+//   window.location.href = "/snapshots/" + params.id;
+// };
+
+// const handleShowSongsNew = () => {
+//   setIsSongsNewVisible(true);
+// };
+
+// const handleHideSongsNew = () => {
+//   setIsSongsNewVisible(false);
+//   window.location.href = "/snapshots/" + params.id;
+// };
+
+// const handleShowGenresNew = () => {
+//   setIsGenresNewVisible(true);
+// };
+
+// const handleHideGenresNew = () => {
+//   setIsGenresNewVisible(false);
+//   window.location.href = "/snapshots/" + params.id;
+// };
+
+{
+  /* <Modal show={isArtistsNewVisible} onClose={handleHideArtistsNew}>
+        <ArtistsNew />
+      </Modal>
+
+      <Modal show={isSongsNewVisible} onClose={handleHideSongsNew}>
+        <SongsNew />
+      </Modal>
+
+      <Modal show={isGenresNewVisible} onClose={handleHideGenresNew}>
+        <GenresNew />
+      </Modal> */
+}
+
+{
+  /* <button onClick={handleShowArtistsNew} className="custom-btn">
+              Add Artists
+            </button> */
+}
+
+{
+  /* <button onClick={handleShowSongsNew} className="custom-btn">
+              Add Songs
+            </button> */
+}
+
+{
+  /* <button onClick={handleShowGenresNew} className="custom-btn">
+              Add Genres
+            </button> */
+}
+
+{
+  /* <div id="genres-index">
+            <h3>Genres</h3>
+
+            {snapshot.genres?.map((genre) => (
+              <div>
+                <h4>{genre.title}</h4>
+              </div>
+            ))}
+          </div> */
 }

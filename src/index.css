@@ -248,6 +248,11 @@ nav {
   padding-bottom: 8em;
 }
 
+.snapshot-show {
+  height: 100vh;
+  width: 100vw;
+}
+
 .custom-btn {
   background-color: #1db954;
   border: none;
