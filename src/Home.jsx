@@ -7,9 +7,9 @@ import { Header } from "./Header";
 import { TopArtists } from "./TopArtists";
 import { TopTracks } from "./TopTracks";
 import { TopPlaylists } from "./TopPlaylists";
-import { RecentlyPlayed } from "./RecentlyPlayed";
-import SpotifyPlayer from "react-spotify-player";
-import { roundToNearestMinutes } from "date-fns";
+// import { RecentlyPlayed } from "./RecentlyPlayed";
+// import SpotifyPlayer from "react-spotify-player";
+// import { roundToNearestMinutes } from "date-fns";
 
 export function Home() {
   const params = useParams();
@@ -41,7 +41,7 @@ export function Home() {
   const [topArtists, setTopArtists] = useState([]);
   const [topPlaylists, setTopPlaylists] = useState([]);
   const [recentlyPlayed, setRecentlyPlayed] = useState([]);
-  const [webPlayerList, setWebPlayerList] = useState([]);
+  // const [webPlayerList, setWebPlayerList] = useState([]);
 
   const handleSnapshotsIndex = () => {
     console.log("handleSnapshotsIndex");
@@ -96,10 +96,11 @@ export function Home() {
         },
       })
       .then((playlistsresponse) => {
+        console.log("playlists");
         console.log(playlistsresponse.data.items);
         setTopPlaylists(playlistsresponse.data.items);
         // console.log(playlistsresponse.data.items[4].id);
-        setWebPlayerList(playlistsresponse.data.items[4].id);
+        // setWebPlayerList(playlistsresponse.data.items[4].id);
       });
 
     const recentlyplayedsresponse = axios
@@ -110,6 +111,7 @@ export function Home() {
         },
       })
       .then((recentlyplayedsresponse) => {
+        console.log("recently played");
         console.log(recentlyplayedsresponse.data.items);
         setRecentlyPlayed(recentlyplayedsresponse.data.items);
       });
@@ -122,6 +124,7 @@ export function Home() {
         },
       })
       .then((tracksresponse) => {
+        console.log("top tracks");
         console.log(tracksresponse.data.items);
         setTopTracks(tracksresponse.data.items);
       });
@@ -136,6 +139,7 @@ export function Home() {
         },
       })
       .then((artistsresponse) => {
+        console.log("top artists");
         console.log(artistsresponse.data.items);
         setTopArtists(artistsresponse.data.items);
       });
@@ -149,8 +153,59 @@ export function Home() {
     window.location.href = "/home";
   };
 
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    console.log("Create Snapshot");
+    const params = new FormData(event.target);
+    handleCreateSnapshot(params);
+    event.target.reset();
+  };
+
+  const handleCreateSnapshot = (params) => {
+    axios.post("http://localhost:3000/snapshots.json", params).then((response) => {
+      const newSnapshot = response.data;
+      console.log("New snapshots!", newSnapshot);
+      window.location.href = "/home";
+    });
+
+    // axios.post("http://localhost:3000/snapshots.json", params).then((response) => {
+    //   const newSnapshot = response.data;
+    //   console.log("New Snapshot Created", newSnapshot);
+    //   window.location.href = "/home";
+    // });
+  };
+
   return (
     <div>
+      <div>
+        <h3>Start New Snapshot</h3>
+
+        <form onSubmit={handleSubmit}>
+          <div>
+            <input name="title" type="text" placeholder="title" />
+          </div>
+          <div>
+            <input name="image" type="text" placeholder="image url" />
+          </div>
+          <div>
+            <input name="start_date" type="date" />
+          </div>
+          {/* <div>
+            <input name="end_date" type="date" />
+          </div> */}
+          <div>
+            <input name="artists" value={topArtists?.map((artist) => artist.name)} type="hidden" />
+          </div>
+          <div>
+            <input name="tracks" value={topTracks?.map((track) => track.name)} type="hidden" />
+          </div>
+          <div>
+            <button type="submit" className="custom-btn-5">
+              Create Snapshot
+            </button>
+          </div>
+        </form>
+      </div>
       <Header />
       <div id="dashboard" className="dashboard">
         <Modal show={isSnapshotsNewVisible} onClose={handleHideSnapshotsNew}>
@@ -185,6 +240,21 @@ export function Home() {
               </button>
             )}
           </div>
+        </div>
+
+        <div id="dashboard-snapshots" className="dashboard-snapshots">
+          <h3>Snapshots</h3>
+          {snapshots?.map((snapshot) => (
+            <div key={snapshot.id} className="snapshots-index">
+              <Link to={`/snapshots/${snapshot.id}`} style={{ textDecoration: "none" }}>
+                <img src={snapshot.image} style={{ width: "32px" }} />
+                <div>
+                  <h4 className="custom-link">{snapshot.title}</h4>
+                  <h4 className="custom-link">{snapshot.start_date}</h4>
+                </div>
+              </Link>
+            </div>
+          ))}
         </div>
 
         <div id="dashboard-container" className="dashboard-container">

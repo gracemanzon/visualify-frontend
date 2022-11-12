@@ -109,8 +109,8 @@ export function SnapshotShow(props) {
             </button>
             {snapshot.artists?.map((artist) => (
               <div>
-                <h4>{artist.name}</h4>
-                <img src={artist.image} />
+                <h4>{artist}</h4>
+                {/* <img src={artist.image} /> */}
               </div>
             ))}
           </div>

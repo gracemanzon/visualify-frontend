@@ -1,4 +1,5 @@
 import axios from "axios";
+import { TopArtists } from "./TopArtists";
 
 export function SnapshotsNew(props) {
   const handleSubmit = (event) => {
@@ -10,17 +11,26 @@ export function SnapshotsNew(props) {
   };
 
   const handleCreateSnapshot = (params) => {
-    axios.post("http://localhost:3000/snapshots.json", params).then((response) => {
-      const newSnapshot = response.data;
-      console.log("New Snapshot Created", newSnapshot);
-      window.location.href = "/home";
-    });
+    axios
+      .post("http://localhost:3000/snapshots.json", { title: params.title, artists: props.topArtists.name })
+      .then((response) => {
+        const newSnapshot = response.data;
+        console.log("New snapshots!", newSnapshot);
+        window.location.href = "/home";
+      });
+
+    // axios.post("http://localhost:3000/snapshots.json", params).then((response) => {
+    //   const newSnapshot = response.data;
+    //   console.log("New Snapshot Created", newSnapshot);
+    //   window.location.href = "/home";
+    // });
   };
 
   return (
     <div id="snapshots-new" className="snapshots-new">
       <div>
         <h3>Start New Snapshot</h3>
+
         <form onSubmit={handleSubmit}>
           <div>
             <input name="title" type="text" placeholder="title" />
