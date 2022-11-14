@@ -285,22 +285,21 @@ export function Home() {
               </button>
             )}
           </div>
-        </div>
-
-        <div id="dashboard-snapshots" className="dashboard-snapshots">
-          <h2>Snapshots</h2>
-          <div className="snapshots-index-wrapper">
-            {snapshots?.map((snapshot) => (
-              <div key={snapshot.id} className="snapshots-index">
-                <Link to={`/snapshots/${snapshot.id}`} style={{ textDecoration: "none" }}>
-                  <img src={snapshot.image} />
-                </Link>
-                <div>
-                  <h3 className="custom-link">{snapshot.title}</h3>
-                  <h3 className="custom-link">{snapshot.start_date}</h3>
+          <div id="dashboard-snapshots" className="dashboard-snapshots">
+            <h2>Snapshots</h2>
+            <div className="snapshots-index-wrapper">
+              {snapshots?.map((snapshot) => (
+                <div key={snapshot.id} className="snapshots-index">
+                  <Link to={`/snapshots/${snapshot.id}`} style={{ textDecoration: "none" }}>
+                    <img src={snapshot.image} />
+                  </Link>
+                  <div>
+                    <h3 className="custom-link">{snapshot.title}</h3>
+                    <h3 className="custom-link">{snapshot.start_date}</h3>
+                  </div>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </div>
 

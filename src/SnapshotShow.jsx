@@ -16,6 +16,8 @@ export function SnapshotShow(props) {
   let followersData = [];
   let popularityData = [];
   let trackPopularityData = [];
+  let recentlyPlayedData = [];
+  let recentlyPlayedPopularityData = [];
 
   const handleSnapshotShow = (snapshot) => {
     axios.get("http://localhost:3000/snapshots/" + params.id + ".json").then((response) => {
@@ -97,6 +99,23 @@ export function SnapshotShow(props) {
       return plotData;
     });
   }
+
+  {
+    snapshot.recently_played?.map((each) => {
+      recentlyPlayedData.push(each);
+      plotData["recentlyPlayed"] = recentlyPlayedData;
+      return plotData;
+    });
+  }
+
+  {
+    snapshot.recently_played_popularity?.map((each) => {
+      recentlyPlayedPopularityData.push(each);
+      plotData["recentlyPlayedPopularity"] = recentlyPlayedPopularityData;
+      return plotData;
+    });
+  }
+
   {
     console.log(trackPopularityData);
   }
@@ -139,11 +158,6 @@ export function SnapshotShow(props) {
           <div id="artists-index">
             <h2>Featured Artists</h2>
             <div className="artists-index">
-              {/* <div className="artists-index-title">
-                {snapshot.artists?.map((artist) => (
-                  <h3>{artist}</h3>
-                ))}
-              </div> */}
               <div className="artists-index-art">
                 {snapshot.artist_images?.map((image) => (
                   <img src={image} />
@@ -152,7 +166,122 @@ export function SnapshotShow(props) {
             </div>
           </div>
 
-          <h2>Snapshot Details</h2>
+          <div className="quick-details">
+            <h3>Your Favorite Song: </h3>
+            {/* {snapshot.tracksData[0]} */}
+          </div>
+
+          <div id="snapshot-plots" className="snapshot-plots">
+            <Plot
+              data={[
+                {
+                  x: artistsData,
+                  y: followersData,
+                  type: "scatter",
+                  mode: "markers",
+                  marker: {
+                    color: [
+                      randomHexColor(),
+                      randomHexColor(),
+                      randomHexColor(),
+                      randomHexColor(),
+                      randomHexColor(),
+                      randomHexColor(),
+                      randomHexColor(),
+                      randomHexColor(),
+                      randomHexColor(),
+                      randomHexColor(),
+                      randomHexColor(),
+                      randomHexColor(),
+                      randomHexColor(),
+                      randomHexColor(),
+                      randomHexColor(),
+                      randomHexColor(),
+                    ],
+                    size: popularityData,
+                    symbol: "circle",
+                  },
+                },
+              ]}
+              layout={{
+                width: 600,
+                height: 600,
+                margin: {
+                  l: 32,
+                  r: 0,
+                },
+                plot_bgcolor: "#191414",
+                paper_bgcolor: "#191414",
+                font: {
+                  size: 12,
+                  color: "#ffffff",
+                },
+              }}
+              config={{
+                scrollZoom: true,
+              }}
+            />
+            <Plot
+              data={[
+                {
+                  y: tracksData,
+                  x: trackPopularityData,
+                  orientation: "h",
+                  type: "scatter",
+                  mode: "lines",
+                  marker: { color: [randomHexColor()] },
+                },
+                {
+                  y: tracksData,
+                  x: trackPopularityData,
+                  type: "bar",
+                  orientation: "h",
+                  marker: { color: randomHexColor() },
+                },
+              ]}
+              layout={{
+                width: 600,
+                height: 600,
+                showlegend: false,
+                margin: {
+                  l: 280,
+                  r: 0,
+                },
+                plot_bgcolor: "#191414",
+                paper_bgcolor: "#191414",
+                font: {
+                  size: 12,
+                  color: "#ffffff",
+                },
+              }}
+            />
+            <Plot
+              data={[
+                {
+                  values: recentlyPlayedPopularityData,
+                  labels: recentlyPlayedData,
+                  textinfo: "label",
+                  insidetextorientation: "radial",
+                  hoverinfo: "label+percent+name",
+                  hole: 0.3,
+                  type: "pie",
+                },
+              ]}
+              layout={{
+                height: 600,
+                width: 600,
+                margin: {
+                  l: 0,
+                  r: 0,
+                },
+                plot_bgcolor: "#191414",
+                paper_bgcolor: "#191414",
+                showlegend: false,
+              }}
+            />
+          </div>
+
+          {/* <h1>Snapshot Details</h1> */}
 
           <div id="genres-index" className="genres-index">
             <h2>Most Played Genres</h2>
@@ -196,109 +325,6 @@ export function SnapshotShow(props) {
               </div>
             </div>
           </div>
-        </div>
-
-        <div id="snapshot-plots" className="snapshot-plots">
-          <Plot
-            data={[
-              {
-                x: artistsData,
-                y: followersData,
-                type: "scatter",
-                mode: "markers",
-                marker: {
-                  color: [
-                    randomHexColor(),
-                    randomHexColor(),
-                    randomHexColor(),
-                    randomHexColor(),
-                    randomHexColor(),
-                    randomHexColor(),
-                    randomHexColor(),
-                    randomHexColor(),
-                    randomHexColor(),
-                    randomHexColor(),
-                    randomHexColor(),
-                    randomHexColor(),
-                    randomHexColor(),
-                    randomHexColor(),
-                    randomHexColor(),
-                    randomHexColor(),
-                  ],
-                  size: popularityData,
-                  symbol: "circle",
-                },
-              },
-            ]}
-            layout={{
-              width: 600,
-              height: 600,
-              plot_bgcolor: "#191414",
-              paper_bgcolor: "#191414",
-              font: {
-                size: 12,
-                color: "#ffffff",
-              },
-            }}
-            config={{
-              scrollZoom: true,
-            }}
-          />
-          <Plot
-            data={[
-              {
-                y: tracksData,
-                x: trackPopularityData,
-                type: "box",
-                marker: {
-                  color: randomHexColor(),
-                },
-              },
-            ]}
-            layout={{
-              width: 600,
-              height: 600,
-              plot_bgcolor: "#191414",
-              paper_bgcolor: "#191414",
-              font: {
-                size: 12,
-                color: "#ffffff",
-              },
-              boxmode: "group",
-            }}
-            config={{
-              scrollZoom: true,
-            }}
-          />
-          <Plot
-            data={[
-              {
-                type: "funnelarea",
-                values: [8, 4, 3, 2, 1],
-                text: [genresData[0], genresData[1], genresData[2], genresData[3], genresData[6]],
-                marker: {
-                  colors: ["59D4E8", "DDB6C6", "A696C8", "67EACA", "94D2E6"],
-                  line: { color: ["3E4E88", "606470", "3E4E88", "606470", "3E4E88"], width: [2, 1, 5, 0, 3] },
-                },
-                textfont: { color: "#ffffff" },
-                opacity: 0.65,
-              },
-            ]}
-            layout={{
-              width: 600,
-              height: 600,
-              plot_bgcolor: "#191414",
-              paper_bgcolor: "#191414",
-              font: {
-                size: 12,
-                color: "#ffffff",
-              },
-              boxmode: "group",
-            }}
-            config={{
-              scrollZoom: true,
-            }}
-          />
         </div>
       </div>
     </div>

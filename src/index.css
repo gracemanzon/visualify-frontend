@@ -155,7 +155,7 @@ nav {
 
 .dashboard-snapshots {
   margin: 6em 0;
-  border: 1px solid red;
+  /* border: 1px solid red; */
 }
 
 .snapshots-index-wrapper {
@@ -262,7 +262,7 @@ nav {
 }
 
 .snapshot-header {
-  margin: 6em 0;
+  margin: 8em 0;
 }
 
 .snapshot-header img {
@@ -278,6 +278,12 @@ nav {
   width: 450px;
   margin-right: auto;
   margin-left: auto;
+  /* border: 1px solid red; */
+}
+
+.snapshot-plots {
+  width: 100%;
+  margin-bottom: 12em;
   /* border: 1px solid red; */
 }
 
