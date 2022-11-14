@@ -157,15 +157,15 @@ export function SnapshotShow(props) {
         <div className="quick-details">
           <div>
             <h2>Favorite Song: </h2>
-            <h3>{snapshot.tracks[0]}</h3>
+            <h3>{tracksData[0]}</h3>
           </div>
           <div>
             <h2>Favorite Artist: </h2>
-            <h3>{snapshot.artists[0]}</h3>
+            <h3>{artistsData[0]}</h3>
           </div>
           <div>
             <h2>Favorite Genre:</h2>
-            <h3>{snapshot.genres[0]}</h3>
+            <h3>{genresData[0]}</h3>
           </div>
         </div>
 

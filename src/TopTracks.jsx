@@ -1,11 +1,4 @@
-import Plot from "react-plotly.js";
-import { randomHexColor } from "random-hex-color-generator";
-
 export function TopTracks(props) {
-  let plotData = [];
-  let titles = [];
-  let popularity = [];
-
   return (
     <div id="top-tracks" className="top-tracks">
       <h2>Top Tracks</h2>

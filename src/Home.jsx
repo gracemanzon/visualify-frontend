@@ -6,10 +6,11 @@ import { Modal } from "./Modal";
 import { Header } from "./Header";
 import { TopArtists } from "./TopArtists";
 import { TopTracks } from "./TopTracks";
-import { TopPlaylists } from "./TopPlaylists";
-// import { RecentlyPlayed } from "./RecentlyPlayed";
-// import SpotifyPlayer from "react-spotify-player";
+// import { TopPlaylists } from "./TopPlaylists";
+import { RecentlyPlayed } from "./RecentlyPlayed";
+import SpotifyPlayer from "react-spotify-player";
 // import { roundToNearestMinutes } from "date-fns";
+import { Footer } from "./Footer";
 
 export function Home() {
   const params = useParams();
@@ -41,7 +42,7 @@ export function Home() {
   const [topArtists, setTopArtists] = useState([]);
   const [topPlaylists, setTopPlaylists] = useState([]);
   const [recentlyPlayed, setRecentlyPlayed] = useState([]);
-  // const [webPlayerList, setWebPlayerList] = useState([]);
+  const [webPlayerList, setWebPlayerList] = useState([]);
 
   const handleSnapshotsIndex = () => {
     console.log("handleSnapshotsIndex");
@@ -100,7 +101,6 @@ export function Home() {
         console.log(playlistsresponse.data.items);
         setTopPlaylists(playlistsresponse.data.items);
         // console.log(playlistsresponse.data.items[4].id);
-        // setWebPlayerList(playlistsresponse.data.items[4].id);
       });
 
     const recentlyplayedsresponse = axios
@@ -114,6 +114,8 @@ export function Home() {
         console.log("recently played");
         console.log(recentlyplayedsresponse.data.items);
         setRecentlyPlayed(recentlyplayedsresponse.data.items);
+        setWebPlayerList(recentlyplayedsresponse.data.items[0].track.id);
+        console.log("WEBPLAYER " + webPlayerList);
       });
 
     const tracksresponse = axios
@@ -183,6 +185,13 @@ export function Home() {
   const sendTrackArtistData = topTracks?.map((track) => track.artists[0].name);
   const sendRecentlyPlayedAlbumArtData = recentlyPlayed?.map((track) => track.track.album.images[0].url);
   const sendRecentlyPlayedPopularityData = recentlyPlayed?.map((track) => track.track.popularity);
+
+  const size = {
+    width: 900,
+    height: 300,
+  };
+  const view = "coverart";
+  const theme = "black";
 
   return (
     <div>
@@ -304,12 +313,17 @@ export function Home() {
         </div>
 
         <div id="dashboard-container" className="dashboard-container">
-          {/* <RecentlyPlayed recentlyPlayed={recentlyPlayed} /> */}
           <TopArtists topArtists={topArtists} />
           <TopTracks topTracks={topTracks} />
           {/* <TopPlaylists topPlaylists={topPlaylists} /> */}
+          <div className="webplayer">
+            <h2>Last Played</h2>
+            <SpotifyPlayer uri={`spotify:track:${webPlayerList}`} size={size} view={view} theme={theme} />
+          </div>
+          <RecentlyPlayed recentlyPlayed={recentlyPlayed} />
         </div>
       </div>
+      <Footer />
     </div>
   );
 }
