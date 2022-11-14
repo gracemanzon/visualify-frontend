@@ -2,6 +2,8 @@
   max-width: 1280px;
   text-align: center;
   background-color: #191414;
+  color: #ffffff;
+  font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
 }
 
 .logo {

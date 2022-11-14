@@ -5,7 +5,7 @@ body {
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
-  color: rgba(255, 255, 255, 0.87);
+  /* color: rgba(255, 255, 255, 0.87); */
   font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
   /* border: 1px solid red; */
 }
@@ -301,7 +301,7 @@ nav {
 
 .songs-index {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   width: 450px;
   border: 1px solid red;
 }
@@ -312,6 +312,10 @@ nav {
   justify-content: space-around;
   text-align: left;
   /* border: 1px solid blue; */
+}
+
+.songs-index-details {
+  display: flex;
 }
 
 .songs-index-art {

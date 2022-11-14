@@ -151,29 +151,33 @@ export function SnapshotShow(props) {
           <div className="snapshot-details">
             <div id="songs-index" className="songs-index">
               <h2>Top Tracks</h2>
-              <div className="songs-index-art">
-                {snapshot.album_images?.map((image) => (
-                  <img src={image} />
-                ))}
-              </div>
-              <div className="songs-index-title">
-                {snapshot.tracks?.map((track) => (
-                  <h3>"{track}"</h3>
-                ))}
+              <div className="songs-index-details">
+                <div className="songs-index-art">
+                  {snapshot.album_images?.map((image) => (
+                    <img src={image} />
+                  ))}
+                </div>
+                <div className="songs-index-title">
+                  {snapshot.tracks?.map((track) => (
+                    <h3>"{track}"</h3>
+                  ))}
+                </div>
               </div>
             </div>
 
             <div id="songs-index" className="songs-index">
-              <h2>Last Played</h2>
-              <div className="songs-index-art">
-                {snapshot.recently_played_album_art?.map((image) => (
-                  <img src={image} />
-                ))}
-              </div>
-              <div className="songs-index-title">
-                {snapshot.tracks?.map((track) => (
-                  <h3>"{track}"</h3>
-                ))}
+              <h2>Last Streamed</h2>
+              <div className="songs-index-details">
+                <div className="songs-index-art">
+                  {snapshot.recently_played_album_art?.map((image) => (
+                    <img src={image} />
+                  ))}
+                </div>
+                <div className="songs-index-title">
+                  {snapshot.recently_played?.map((track) => (
+                    <h3>"{track}"</h3>
+                  ))}
+                </div>
               </div>
             </div>
           </div>

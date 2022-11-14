@@ -75,6 +75,7 @@ export function TopArtists(props) {
           }}
         />
       </div>
+
       <div className="top-artists-wrapper">
         {props.topArtists?.map((artist) => (
           <div key={artist.id} className="artists-wrapper">
