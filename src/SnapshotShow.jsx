@@ -154,6 +154,21 @@ export function SnapshotShow(props) {
           </div>
         </div>
 
+        <div className="quick-details">
+          <div>
+            <h2>Favorite Song: </h2>
+            <h3>{snapshot.tracks[0]}</h3>
+          </div>
+          <div>
+            <h2>Favorite Artist: </h2>
+            <h3>{snapshot.artists[0]}</h3>
+          </div>
+          <div>
+            <h2>Favorite Genre:</h2>
+            <h3>{snapshot.genres[0]}</h3>
+          </div>
+        </div>
+
         <div className="snapshot-container">
           <div id="artists-index">
             <h2>Featured Artists</h2>
@@ -164,11 +179,6 @@ export function SnapshotShow(props) {
                 ))}
               </div>
             </div>
-          </div>
-
-          <div className="quick-details">
-            <h3>Your Favorite Song: </h3>
-            {/* {snapshot.tracksData[0]} */}
           </div>
 
           <div id="snapshot-plots" className="snapshot-plots">
@@ -281,7 +291,7 @@ export function SnapshotShow(props) {
             />
           </div>
 
-          {/* <h1>Snapshot Details</h1> */}
+          <h1>Snapshot Details</h1>
 
           <div id="genres-index" className="genres-index">
             <h2>Most Played Genres</h2>

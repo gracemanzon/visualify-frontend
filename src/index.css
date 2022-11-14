@@ -257,8 +257,9 @@ nav {
 }
 
 .snapshot-show {
-  height: 100vh;
   width: 100vw;
+  margin-bottom: 12em;
+  /* border: 1px solid red; */
 }
 
 .snapshot-header {
@@ -281,10 +282,56 @@ nav {
   /* border: 1px solid red; */
 }
 
+.quick-details {
+  display: flex;
+  justify-content: space-around;
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 12em;
+}
+
+.quick-details h2 {
+  font-size: 1.8em;
+  font-weight: 600;
+  line-height: 0.6;
+}
+.quick-details h3 {
+  font-size: 1.8em;
+  font-weight: 300;
+  line-height: 1.1;
+  color: #1db954;
+}
+
 .snapshot-plots {
   width: 100%;
-  margin-bottom: 12em;
+  margin: 0 0 12em 0;
   /* border: 1px solid red; */
+}
+
+.artists-index {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 3em 0 0 0;
+  /* border: 1px solid red; */
+}
+
+.artists-index-art img {
+  width: 100px;
+  border-radius: 50%;
+  margin: 0.5em;
+}
+
+.snapshot-details {
+  display: flex;
+  justify-content: space-around;
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .genres-index {
@@ -308,31 +355,6 @@ nav {
   margin: 12px;
   color: #1db954;
   /* border: 1px solid red; */
-}
-
-.artists-index {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  width: 80%;
-  margin-left: auto;
-  margin-right: auto;
-  padding: 3em 0;
-  /* border: 1px solid red; */
-}
-
-.artists-index-art img {
-  width: 100px;
-  border-radius: 50%;
-  margin: 0.5em;
-}
-
-.snapshot-details {
-  display: flex;
-  justify-content: space-around;
-  width: 80%;
-  margin-left: auto;
-  margin-right: auto;
 }
 
 .songs-index {
