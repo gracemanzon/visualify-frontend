@@ -9,7 +9,26 @@ export function TopTracks(props) {
   return (
     <div id="top-tracks" className="top-tracks">
       <h2>Top Tracks</h2>
-      <div className="top-tracks-plot">
+      <div className="top-tracks-wrapper">
+        {props.topTracks?.map((track) => (
+          <div key={track.id} className="track-wrapper">
+            <img src={track.album.images[0].url} />
+            <div>
+              <h3>"{track.name}"</h3>
+              <h4>{track.artists[0].name}</h4>
+              <h4>
+                <em>{track.album.name}</em>
+              </h4>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+{
+  /* <div className="top-tracks-plot">
         {props.topTracks?.map((each) => {
           titles.push(each.name);
           popularity.push(each.popularity);
@@ -47,21 +66,5 @@ export function TopTracks(props) {
             },
           }}
         />
-      </div>
-      <div className="top-tracks-wrapper">
-        {props.topTracks?.map((track) => (
-          <div key={track.id} className="track-wrapper">
-            <img src={track.album.images[0].url} />
-            <div>
-              <h3>"{track.name}"</h3>
-              <h4>{track.artists[0].name}</h4>
-              <h4>
-                <em>{track.album.name}</em>
-              </h4>
-            </div>
-          </div>
-        ))}
-      </div>
-    </div>
-  );
+      </div> */
 }

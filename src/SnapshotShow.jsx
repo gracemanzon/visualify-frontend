@@ -103,6 +103,11 @@ export function SnapshotShow(props) {
 
   useEffect(handleSnapshotShow, []);
 
+  let genres = snapshot.genres?.map((title) => title);
+  let uniqueGenres = [...new Set(genres)];
+  // console.log("OMG " + genres);
+  // console.log("OMG " + uniqueGenres);
+
   return (
     <div>
       <Header />
@@ -148,6 +153,16 @@ export function SnapshotShow(props) {
           </div>
 
           <h2>Snapshot Details</h2>
+
+          <div id="genres-index" className="genres-index">
+            <h2>Most Played Genres</h2>
+            <div className="genres-index-details">
+              {uniqueGenres.map((title) => (
+                <h3>{title}</h3>
+              ))}
+            </div>
+          </div>
+
           <div className="snapshot-details">
             <div id="songs-index" className="songs-index">
               <h2>Top Tracks</h2>

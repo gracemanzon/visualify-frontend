@@ -188,9 +188,10 @@ nav {
 
 .top-artists-wrapper {
   display: flex;
+  flex-direction: row;
   justify-content: space-around;
   flex-wrap: wrap;
-  padding-bottom: 8em;
+  padding: 3em 0;
   width: 80%;
   margin-left: auto;
   margin-right: auto;
@@ -198,14 +199,15 @@ nav {
 }
 
 .top-artists-wrapper img {
-  margin-right: 1em;
+  /* margin-right: 1em; */
+  border-radius: 50%;
 }
 
 .artists-wrapper {
-  width: 400px;
+  width: 200px;
   display: flex;
+  flex-direction: column;
   align-items: center;
-  text-align: left;
   margin-bottom: 1.3em;
   /* border: 1px solid red; */
 }
@@ -215,7 +217,7 @@ nav {
   justify-content: space-around;
   flex-wrap: wrap;
   padding: 3em 0;
-  width: 80%;
+  width: 100%;
   margin-left: auto;
   margin-right: auto;
   margin-top: 2em;
@@ -279,13 +281,37 @@ nav {
   /* border: 1px solid red; */
 }
 
+.genres-index {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 3em 0;
+  /* border: 1px solid red; */
+}
+
+.genres-index-details {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.genres-index-details h3 {
+  margin: 12px;
+  color: #1db954;
+  /* border: 1px solid red; */
+}
+
 .artists-index {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
-  width: 60vw;
+  width: 80%;
   margin-left: auto;
   margin-right: auto;
+  padding: 3em 0;
   /* border: 1px solid red; */
 }
 
@@ -297,13 +323,17 @@ nav {
 
 .snapshot-details {
   display: flex;
+  justify-content: space-around;
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .songs-index {
   display: flex;
   flex-direction: column;
   width: 450px;
-  border: 1px solid red;
+  /* border: 1px solid red; */
 }
 
 .songs-index-title {
@@ -316,6 +346,8 @@ nav {
 
 .songs-index-details {
   display: flex;
+  /* flex-wrap: wrap; */
+  /* border: 1px solid red; */
 }
 
 .songs-index-art {
