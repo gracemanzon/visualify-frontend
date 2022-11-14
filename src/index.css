@@ -175,7 +175,7 @@ nav {
   align-items: center;
   text-align: left;
   margin-bottom: 1.3em;
-  border: 1px solid red;
+  /* border: 1px solid red; */
 }
 
 .snapshots-index img {
