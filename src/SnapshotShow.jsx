@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { Header } from "./Header";
 import Plot from "react-plotly.js";
 import { randomHexColor } from "random-hex-color-generator";
+import { Footer } from "./Footer";
 
 export function SnapshotShow(props) {
   const params = useParams();
@@ -337,6 +338,7 @@ export function SnapshotShow(props) {
           </div>
         </div>
       </div>
+      <Footer />
     </div>
   );
 }
