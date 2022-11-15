@@ -158,33 +158,52 @@ export function Home() {
   const handleSubmit = (event) => {
     event.preventDefault();
     console.log("Create Snapshot");
-    const params = new FormData(event.target);
-    handleCreateSnapshot(params);
+    let snapshotForm = document.getElementById("newSnapshotForm");
+    let title = snapshotForm.title.value;
+    let image = snapshotForm.image.value;
+    let startDate = snapshotForm.start_date.value;
+    let endDate = snapshotForm.end_date.value;
+    let allGenres = topArtists.map((artist) => artist.genres).map((genre) => genre);
+    let mergedGenres = [].concat(...allGenres);
+    let uniqueGenres = [...new Set(mergedGenres)];
+    console.log("ALLGENRES " + mergedGenres);
+
+    console.log(title);
+    console.log(startDate);
+    console.log(endDate);
+    console.log(topArtists);
+    console.log(topTracks);
+
+    let formParams = {
+      title: title,
+      image: image,
+      start_date: startDate,
+      end_date: endDate,
+      artists: topArtists,
+      genres: uniqueGenres,
+      tracks: topTracks,
+      recently_played: recentlyPlayed,
+    };
+
+    handleCreateSnapshot(formParams);
+
+    console.log(formParams);
     event.target.reset();
   };
 
-  const handleCreateSnapshot = (params) => {
-    axios.post("http://localhost:3000/snapshots.json", params).then((response) => {
-      const newSnapshot = response.data;
-      console.log("New snapshots!", newSnapshot);
-      window.location.href = "/home";
-    });
+  const handleCreateSnapshot = (formParams) => {
+    axios
+      .post("http://localhost:3000/snapshots.json", formParams, {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      })
+      .then((response) => {
+        const newSnapshot = response.data;
+        console.log("New snapshots!", newSnapshot);
+        window.location.href = "/home";
+      });
   };
-
-  const sendArtistsData = topArtists?.map((artist) => artist.name);
-  const sendTracksData = topTracks?.map((track) => track.name);
-  const sendGenresData = topArtists?.map((artist) => artist.genres).map((genre) => genre);
-  const sendPopularityData = topArtists?.map((artist) => artist.popularity);
-  const sendFollowersData = topArtists?.map((artist) => artist.followers.total);
-  const sendTrackPopularityData = topTracks?.map((track) => track.popularity);
-  const sendArtistImagesData = topArtists?.map((artist) => artist.images[0].url);
-  const sendAlbumData = topTracks?.map((track) => track.album.name);
-  const sendAlbumImagesData = topTracks?.map((track) => track.album.images[0].url);
-  const sendRecentlyPlayedData = recentlyPlayed?.map((track) => track.track.name);
-  const sendRecentlyPlayedArtistData = recentlyPlayed?.map((track) => track.track.artists[0].name);
-  const sendTrackArtistData = topTracks?.map((track) => track.artists[0].name);
-  const sendRecentlyPlayedAlbumArtData = recentlyPlayed?.map((track) => track.track.album.images[0].url);
-  const sendRecentlyPlayedPopularityData = recentlyPlayed?.map((track) => track.track.popularity);
 
   const size = {
     width: 900,
@@ -201,12 +220,12 @@ export function Home() {
           <div>
             <h3>New Snapshot</h3>
 
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={handleSubmit} id="newSnapshotForm">
               <div>
-                <input name="title" type="text" placeholder="title" />
+                <input name="title" type="text" placeholder="title" id="title" />
               </div>
               <div>
-                <input name="image" type="text" placeholder="image url" />
+                <input name="image" type="text" placeholder="image url" id="image" />
               </div>
               <div>
                 <p>Start Date - End Date</p>
@@ -214,48 +233,6 @@ export function Home() {
               </div>
               <div>
                 <input name="end_date" type="date" />
-              </div>
-              <div>
-                <input name="genres" value={"/" + sendGenresData} type="hidden" />
-              </div>
-              <div>
-                <input name="artists" defaultValue={"/" + sendArtistsData} type="hidden" />
-              </div>
-              <div>
-                <input name="artist_images" value={"/" + sendArtistImagesData} type="hidden" />
-              </div>
-              <div>
-                <input name="artist_popularity" value={"/" + sendPopularityData} type="hidden" />
-              </div>
-              <div>
-                <input name="artist_followers" value={"/" + sendFollowersData} type="hidden" />
-              </div>
-              <div>
-                <input name="tracks" value={"/" + sendTracksData} type="hidden" />
-              </div>
-              <div>
-                <input name="track_artist" value={"/" + sendTrackArtistData} type="hidden" />
-              </div>
-              <div>
-                <input name="track_popularity" value={"/" + sendTrackPopularityData} type="hidden" />
-              </div>
-              <div>
-                <input name="album" value={"/" + sendAlbumData} type="hidden" />
-              </div>
-              <div>
-                <input name="album_images" value={"/" + sendAlbumImagesData} type="hidden" />
-              </div>
-              <div>
-                <input name="recently_played" value={"/" + sendRecentlyPlayedData} type="hidden" />
-              </div>
-              <div>
-                <input name="recently_played_artist" value={"/" + sendRecentlyPlayedArtistData} type="hidden" />
-              </div>
-              <div>
-                <input name="recently_played_album_art" value={"/" + sendRecentlyPlayedAlbumArtData} type="hidden" />
-              </div>
-              <div>
-                <input name="recently_played_popularity" value={"/" + sendRecentlyPlayedPopularityData} type="hidden" />
               </div>
               <div>
                 <button type="submit" className="custom-btn-2">
@@ -326,69 +303,4 @@ export function Home() {
       <Footer />
     </div>
   );
-}
-
-// const size = {
-//   width: 600,
-//   height: 96,
-// };
-// const view = "list"; // or 'coverart'
-// const theme = "black";
-
-{
-  /* <div className="webplayer">
-            <SpotifyPlayer uri={`spotify:playlist:${webPlayerList}`} size={size} view={view} theme={theme} />
-          </div> */
-}
-
-{
-  /* <div className="dashboard-container">
-          <div id="dashboard-snapshots" className="dashboard-snapshots">
-            <h3>Snapshots</h3>
-            {snapshots?.map((snapshot) => (
-              <div key={snapshot.id}>
-                <Link to={`/snapshots/${snapshot.id}`} style={{ textDecoration: "none" }}>
-                  <h4 className="custom-link">{snapshot.title}</h4>
-                  <img src={snapshot.image} />
-                </Link>
-              </div>
-            ))}
-          </div>
-
-          <div id="dashboard-artists" className="dashboard-artists">
-            <h3>Top Artists</h3>
-            {user.artists?.map((artist) => (
-              <div>
-                <h4>{artist.name}</h4>
-                <img src={artist.image} />
-              </div>
-            ))}
-          </div>
-
-          <div id="dashboard-songs" className="dashboard-songs">
-            <h3>Top Songs</h3>
-            {user.songs?.map((song) => (
-              <div>
-                <h4>"{song.title}"</h4>
-                <h4>{song.artist}</h4>
-                <h4>
-                  <em>{song.album}</em>
-                </h4>
-                <img src={song.album_art} />
-              </div>
-            ))}
-          </div>
-
-          <div id="dashboard-genres" className="dashboard-genres">
-            <h3>Top Genres</h3>
-            {user.genres?.map((genre) => (
-              <div>
-                <h4>{genre.title}</h4>
-              </div>
-            ))}
-          </div>
-        </div> */
-}
-{
-  /* <Footer /> */
 }
