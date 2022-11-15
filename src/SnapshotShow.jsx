@@ -268,9 +268,9 @@ export function SnapshotShow(props) {
                 {
                   values: recentlyPlayedPopularityData,
                   labels: recentlyPlayedData,
-                  textinfo: "label",
+                  textinfo: "percent",
                   insidetextorientation: "radial",
-                  hoverinfo: "label+percent+name",
+                  hoverinfo: "label+percent",
                   hole: 0.3,
                   type: "pie",
                 },
@@ -284,7 +284,7 @@ export function SnapshotShow(props) {
                 },
                 plot_bgcolor: "#191414",
                 paper_bgcolor: "#191414",
-                showlegend: false,
+                showlegend: true,
               }}
             />
           </div>
