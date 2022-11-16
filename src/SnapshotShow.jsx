@@ -212,6 +212,7 @@ export function SnapshotShow(props) {
                 },
               ]}
               layout={{
+                title: "Top Artists",
                 width: 600,
                 height: 600,
                 margin: {
@@ -248,6 +249,7 @@ export function SnapshotShow(props) {
                 },
               ]}
               layout={{
+                title: "Top Tracks",
                 width: 600,
                 height: 600,
                 showlegend: false,
@@ -276,8 +278,9 @@ export function SnapshotShow(props) {
                 },
               ]}
               layout={{
+                title: "Last Streamed",
                 height: 600,
-                width: 600,
+                width: 800,
                 margin: {
                   l: 0,
                   r: 0,
@@ -285,6 +288,10 @@ export function SnapshotShow(props) {
                 plot_bgcolor: "#191414",
                 paper_bgcolor: "#191414",
                 showlegend: true,
+                font: {
+                  size: 12,
+                  color: "#ffffff",
+                },
               }}
             />
           </div>
