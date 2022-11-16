@@ -9,7 +9,7 @@ Visualify is a browser based app that is inspired by Spotify Wrapped and combine
 
 ![screenshot](/assets/visualify-preview.png)
 
-## Installation
+## Installation + Dependencies
 
 - vite: ^3.2.3
 - react: ^18.2.0
