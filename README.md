@@ -3,7 +3,7 @@
 Visualify is a browser based app that is inspired by Spotify Wrapped and combines a users realtime Spotify account data with detailed graphs. This react frontend works in conjuction with a rails backend found here: [visualify-api](https://github.com/gracemanzon/visualify-api)
 
 - RESTful backend built with Ruby on Rails using an MVC architecture
-- User authentication with using JSON web tokens
+- User authentication using JSON web tokens
 - Frontend built with React and allowing Spotify API connect using OAuth
 - Personalized charts genreated with the Plotly library for React
 
@@ -15,7 +15,6 @@ Visualify is a browser based app that is inspired by Spotify Wrapped and combine
 - react: ^18.2.0
 
 ```bash
-npm install
 npm install axios
 npm install react-router-dom
 npm install plotly.js react-plotly.js
