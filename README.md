@@ -15,6 +15,7 @@ Visualify is a browser based app that is inspired by Spotify Wrapped and combine
 - react: ^18.2.0
 
 ```bash
+npm install
 npm install axios
 npm install react-router-dom
 npm install plotly.js react-plotly.js
